@@ -1,0 +1,211 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>Lumia Bootstrap Template - Index</title>
+        <meta content="" name="descriptison">
+        <meta content="" name="keywords">
+
+        <!-- Favicons -->
+        <link href="assets/img/favicon.png" rel="icon">
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+        <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+        <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="assets/css/style.css" rel="stylesheet">
+
+        <!-- =======================================================
+        * Template Name: Lumia - v2.1.0
+        * Template URL: https://bootstrapmade.com/lumia-bootstrap-business-template/
+        * Author: BootstrapMade.com
+        * License: https://bootstrapmade.com/license/
+        ======================================================== -->
+    </head>
+    <body>
+        <section id="perencanaan_anggaran" class="perencanaan_anggaran">
+            <div class="container">
+      
+              <div class="row">
+                <div class="col-lg-6 pt-4 pt-lg-0">
+                    <h3>Kalkulator Apa Mimpimu?</h3>
+                    <p>
+                        Kamu pasti memliki impian tersendiri yang ingin diwujudkan dalam hidupn seperti menikah, liburan renovasi rumah dll untuk mewujudkanya perlu perencanaan keungan yang tepat dan Menghitung kebutuhan dana impian tersebut.
+                    </p>
+                    <p>
+                        Yuk hitung mimpimu dan buat langkahh yang tepat untuk mewujudkanya.
+                    </p>
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Pilih Kalkulator</button>
+                        <div id="myDropdown" class="dropdown-content">
+                          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                          <a href="index.html">Kalkulator Perencanaan Anggaran</a>
+                          <a href="kalkulator_perencanaan_asuransi_jiwa.html">Kalkulator Perencanaan Asuransi Jiwa </a>
+                          <a href="kalkulator_dana_darurat.html">Kalkulator Dana Darurat</a>
+                          <a href="kalkulator_dana_kredit_rumah.html">Kalkulator Kredit Pembelian Rumah</a>
+                          <a href="kalkulator_dana_kredit_kendaraan.html">Kalkulator Kredit Pembelian Kendaraan</a>
+                          <a href="kalkulator_dana_pensiun.html">Kalkulator Perencanaan Dana Pensiun</a>                          
+                          <a href="kalkulator_kebutuhan.html">Kalkulator Apa Mimpimu</a>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- <div class="col-lg-6">
+                  <img src="assets/img/about.jpg" class="img-fluid" alt="">
+                </div> -->
+
+                <div class="col-lg-6 calc">
+                    <h2>Dana Mewujudkan Mimpi</h2>
+                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                        <!-- <div class="row"> -->
+                        <div class="form-row">
+                            <label for="impian_kamu" class="col-sm-4 col-form-label">Impian Kamu</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="impian_kamu" placeholder="Rp." name="impian_kamu">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="biaya_saat_ini" class="col-sm-4 col-form-label">Biaya saat ini</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="biaya_saat_ini" placeholder="Rp." name="biaya_saat_ini" onkeyup="SUM_HUTANG()">
+                            </div>
+                        </div>                        
+                        <div class="form-row">
+                            <label for="asumsi_inflasi" class="col-sm-4 col-form-label">Asumsi inflasi per tahun</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="asumsi_inflasi" placeholder="Rp." name="asumsi_inflasi" onkeyup="SUM_HUTANG()">
+                            </div>
+                        </div>                        
+                        <div class="form-row">
+                            <label for="tahun_dicapai" class="col-sm-4 col-form-label">Berapa tahun lagi ingin dicapai</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="tahun_dicapai" placeholder="Rp." name="tahun_dicapai" onkeyup="SUM_HUTANG()">
+                            </div>
+                        </div>
+                        <div class="form-row jumlah-kebutuhan-pemasukan">
+                            <label for="total_kebutuhan_mimpi" class="col-sm-4 col-form-label">Kebutuhan mimpimu</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="total_kebutuhan_mimpi" placeholder="Rp." name="total_kebutuhan_mimpi" disabled onkeyup="sum_pendekatan_pemasukan()">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="estimasi_hasil" class="col-sm-4 col-form-label">Estimasi hasil investasi pertahun</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="estimasi_hasil" placeholder="Rp." name="estimasi_hasil" onkeyup="SUM_HUTANG()">
+                            </div>
+                        </div>
+
+                        <div class="form-row jumlah-kebutuhan-retensi">
+                            <label for="jumlah_investasi" class="col-sm-4 col-form-label">Jumlah investasi perbulan</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="jumlah_investasi" placeholder="Rp." name="jumlah_investasi" onkeyup="SUM_HUTANG()" disabled>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    </form>
+                    
+                </div>
+              </div>
+              
+            </div>
+          </section><!-- End perencanaan_anggaran Section -->
+      
+          
+
+        <!-- Vendor JS Files -->
+        <script src="assets/vendor/jquery/jquery.min.js"></script>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+        <script src="assets/vendor/php-email-form/validate.js"></script>
+        <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+        <script src="assets/vendor/counterup/counterup.min.js"></script>
+        <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+        <script src="assets/vendor/venobox/venobox.min.js"></script>
+        <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+
+        <!-- Template Main JS File -->
+        <script src="assets/js/main.js"></script>
+    
+        <!-- hitungan table -->
+        <script>
+            function SUM_HUTANG(){
+                var kpr = document.getElementById("sisa_hutang_kpr").value;
+                var kredit_kendaraan = document.getElementById("sisa_hutang_kredit_kendaraan").value;
+                var kredit_bisnis = document.getElementById("sisa_hutang_kredit_bisnis").value;
+                var hutang_lainnya = document.getElementById("sisa_hutang_lainnya").value;
+                var totalhutang = Number(kpr) + Number(kredit_kendaraan) + Number(kredit_bisnis) + Number(hutang_lainnya);
+                
+                var totalbiaya = document.getElementById("total_biaya").value;
+                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
+
+                document.getElementById("total_hutang").value=totalhutang;
+
+                var result = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun);
+                var result1 = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
+
+                document.getElementById("asuransi_jiwa_pemasukan").value = result;
+                document.getElementById("asuransi_jiwa_retensi").value = result1;
+            }
+
+            function SUM_HARI_ESOK(){
+                var pemakaman = document.getElementById("biaya_pemakaman").value;
+                var medis = document.getElementById("biaya_medis").value;
+                var pajak = document.getElementById("biaya_pajak").value;
+                var totalbiaya = Number(medis) + Number(pajak) + Number(pemakaman);
+                var totalhutang = document.getElementById("total_hutang").value;                
+                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
+
+                document.getElementById("total_biaya").value=totalbiaya;
+
+                var result = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun);
+                var result1 = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun) + Number(pemasukanpertahun);
+
+                document.getElementById("asuransi_jiwa_pemasukan").value = result;
+                document.getElementById("asuransi_jiwa_retensi").value = result1;
+            }
+
+            function sum_pendekatan_pemasukan(){
+                var totalhutang = document.getElementById("total_hutang").value;
+                var totalbiaya = document.getElementById("total_biaya").value;
+                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
+                var result = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun);
+                var result1 = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
+
+                document.getElementById("asuransi_jiwa_pemasukan").value = result;
+                document.getElementById("asuransi_jiwa_retensi").value = result1;
+            }            
+
+            function filterFunction() {
+                var input, filter, ul, li, a, i;
+                input = document.getElementById("myInput");
+                filter = input.value.toUpperCase();
+                div = document.getElementById("myDropdown");
+                a = div.getElementsByTagName("a");
+                for (i = 0; i < a.length; i++) {
+                    txtValue = a[i].textContent || a[i].innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                    } else {
+                    a[i].style.display = "none";
+                    }
+                }
+                }
+                function myFunction() {
+                    document.getElementById("myDropdown").classList.toggle("show");
+                }
+
+        </script>
+    </body>
+</html>
