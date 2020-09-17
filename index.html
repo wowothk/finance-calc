@@ -3,7 +3,7 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <title>Lumia Bootstrap Template - Index</title>
+        <title>OFIN Indonesia</title>
         <meta content="" name="descriptison">
         <meta content="" name="keywords">
 
@@ -22,7 +22,10 @@
         <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
 
         <!-- Template Main CSS File -->
+        <script src="assets/js/Chart.js"></script>
         <link href="assets/css/style.css" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
 
         <!-- =======================================================
         * Template Name: Lumia - v2.1.0
@@ -44,37 +47,32 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li class="drop-down"><a href="">About</a>
+          <li class="active"><a href="https://www.okefinansial.com/">Home</a></li>
+          <li><a href="https://www.okefinansial.com/about">About Us</a></li>
+          <li><a href="https://www.okefinansial.com/financial-check-up/">Financial Check Up</a></li>
+          <li class="drop-down"><a href="https://www.okefinansial.com/ofins-services/">Our Services</a>
             <ul>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#team">Team</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Dow</a>
+              <!-- <li><a href="https://www.okefinansial.com/ofins-services/">Our Services</a></li> -->
+              <li><a href="https://www.okefinansial.com/book-planning/">Book Planning</a></li>
+              <li><a href="https://www.okefinansial.com/ofin-talks/">OFIN's Talk</a></li>
+              <li><a href="https://www.okefinansial.com/consulting/">Consulting</a></li>
+              <li><a href="https://www.okefinansial.com/company/">Company</a></li>
+              <li class="drop-down"><a href="https://www.okefinansial.com/certification-financial-planner/">Certification</a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
+                  <!-- <li><a href="">Certification</a></li> -->
+                  <li><a href="https://www.okefinansial.com/associated-wealth-planner-awp-certification/">AWP Certification</a></li>
+                  <li><a href="https://www.okefinansial.com/qwp-certification/">QWP Certification</a></li>
+                  <li><a href="https://www.okefinansial.com/ofin-certification-2/">OFIN's Certification</a></li>
                 </ul>
               </li>
             </ul>
           </li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="https://www.okefinansial.com/blog/">News & Event</a></li>
+          <li><a href="https://www.okefinansial.com/gallery-ofin/">Gallery</a></li>
+          <li><a href="https://www.okefinansial.com/contact-us/">Contact Us</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
-
-      <div class="header-social-links">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
-        <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
-        <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
-      </div>
-
     </div>
   </header><!-- End Header -->
   
@@ -112,130 +110,158 @@
                           <a href="kalkulator_kebutuhan.html">Kalkulator Apa Mimpimu</a>
                         </div>
                     </div>
-
+                    <br><br>
+                    <h4><strong>Persentase Anggaran Ideal</strong></h4>
+                    <canvas id="labelChart"></canvas>                    
                 </div>
                 
-                <!-- <div class="col-lg-6">
-                  <img src="assets/img/about.jpg" class="img-fluid" alt="">
-                </div> -->
-
-                <div class="col-lg-6 calc">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                        <!-- <div class="row"> -->
+                <div class="col-lg-6">
+                    <h3>Simulasi Anggaran Ideal</h3><br>
+                    <form action="forms/contact.php" method="post" role="form" class="php-email-form calc">
                         <div class="form-row">
-                            <label for="sisa_hutang_kpr" class="col-sm-4 col-form-label">Sisa hutang KPR</label>
+                            <h4>Pendapatan Bulanan</h4>
+                        </div>
+                        <div class="form-row">
+                            <label for="pendapatan_aktif" class="col-sm-4 col-form-label">Pendapatan Aktif</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="sisa_hutang_kpr" placeholder="Rp." name="sisa_hutang_kpr" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="pendapatan_aktif" placeholder="Rp." name="pendapatan_aktif" onkeyup="SUM_PENDAPATAN()">
                             </div>
                         </div>
                         
                         <div class="form-row">
-                            <label for="sisa_hutang_kredit_kendaraan" class="col-sm-4 col-form-label">Sisa hutang kredit kendaraan</label>
+                            <label for="pendapatan_pasif" class="col-sm-4 col-form-label">Pendapatan Pasif</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="sisa_hutang_kredit_kendaraan" placeholder="Rp." name="sisa_hutang_kredit_kendaraan" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="pendapatan_pasif" placeholder="Rp." name="pendapatan_pasif" onkeyup="SUM_PENDAPATAN()">
                             </div>
                         </div>                        
+
                         <div class="form-row">
-                            <label for="sisa_hutang_kredit_bisnis" class="col-sm-4 col-form-label">Sisa hutang kredit bisnis</label>
+                            <label for="total_pendapatan" class="col-sm-4 col-form-label">Total Pendapatan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="sisa_hutang_kredit_bisnis" placeholder="Rp." name="sisa_hutang_kredit_bisnis" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="total_pendapatan" placeholder="Rp." name="total_pendapatan" disabled>
                             </div>
                         </div>                        
-                        <div class="form-row">
-                            <label for="sisa_hutang_lainnya" class="col-sm-4 col-form-label">Sisa hutang lainnya</label>
-                            <div class="col-sm-8">
-                            <input type="text" class="form-control" id="sisa_hutang_lainnya" placeholder="Rp." name="sisa_hutang_lainnya" onkeyup="SUM_HUTANG()">
-                            </div>
-                        </div>
-                        <div class="form-row total">
-                            <label for="total_hutang" class="col-sm-4 col-form-label">Total Hutang</label>
-                            <div class="col-sm-8">
-                            <input type="text" class="form-control" id="total_hutang" placeholder="Rp." name="total_hutang" disabled onkeyup="sum_pendekatan_pemasukan()">
-                            </div>
-                        </div>
-
-                        <!-- ## -->
-                        <div class="form-row">
-                            <label for="biaya_pemakaman" class="col-sm-4 col-form-label">Biaya Pemakaman</label>
-                            <div class="col-sm-8">
-                            <input type="text" class="form-control" id="biaya_pemakaman" placeholder="Rp." name="biaya_pemakaman" onkeyup="SUM_HARI_ESOK()">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <label for="biaya_medis" class="col-sm-4 col-form-label">Biaya medis dan akhir</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="biaya_medis" placeholder="Rp." name="biaya_medis" onkeyup="SUM_HARI_ESOK()">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <label for="biaya_pajak" class="col-sm-4 col-form-label">Biaya pajak dan waris</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="biaya_pajak" placeholder="Rp." name="biaya_pajak" onkeyup="SUM_HARI_ESOK()">
-                            </div>
-                        </div>
-
-                        <div class="form-row  total">
-                            <label for="total_biaya" class="col-sm-4 col-form-label">Total Biaya</label>
-                            <div class="col-sm-8">
-                            <input type="text" class="form-control" id="total_biaya" placeholder="Rp." name="total_biaya" disabled onkeyup="sum_pendekatan_pemasukan()">
-                            </div>
-                        </div>
-                        <!-- ## -->
-
-                        <div class="form-row">
-                            <label for="pemasukan_pertahun" class="col-sm-4 col-form-label">Pemasukan pertahun</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="pemasukan_pertahun" placeholder="Rp." name="pemasukan_pertahun" onkeyup="sum_pendekatan_pemasukan()">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <label for="perlindungan_keluarga" class="col-sm-4 col-form-label">Masa perlindungan untuk keluarga</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="perlindungan_keluarga" placeholder="Rp." name="perlindungan_keluarga">
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <label for="uang_pertanggungan" class="col-sm-4 col-form-label">Kebutuhan uang pertanggungan</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="uang_pertanggungan" placeholder="Rp." name="uang_pertanggungan" onkeyup="sum_pendekatan_pemasukan()">
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <label for="asumsi_investasi" class="col-sm-4 col-form-label">Asumsi pertumbuhan investasi</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="asumsi_investasi" placeholder="Rp." name="asumsi_investasi">
-                            </div>
-                        </div>
-
-                        <div class="form-row jumlah-kebutuhan-pemasukan">
-                            <label for="asuransi_jiwa_pemasukan" class="col-sm-4 col-form-label">Jumlah kebutuhan uang pertanggungan asuransi jiwa pendekatan pemasukan</label>
-                            <div class="col-sm-8">
-                            <input type="text" class="form-control" id="asuransi_jiwa_pemasukan" placeholder="Rp." name="asuransi_jiwa_pemasukan" disabled>
-                            </div>
-                        </div>
-
-                        <div class="form-row jumlah-kebutuhan-retensi">
-                            <label for="asuransi_jiwa_retensi" class="col-sm-4 col-form-label">Jumlah kebutuhan uang pertanggungan asuransi jiwa retensi modal</label>
-                            <div class="col-sm-8">
-                            <input type="text" class="form-control" id="asuransi_jiwa_retensi" placeholder="Rp." name="asuransi_jiwa_retensi" disabled>
-                            </div>
-                        </div>
-
-                        <!-- </div> -->
                     </form>
+                    <br>
+                    <form action="forms/contact.php" method="post" role="form" class="php-email-form calc">
+                        <div class="form-row">
+                            <h4>Pengeluaran Ideal Kamu</h4>
+                        </div>
+                        <div class="form-row">
+                            <label for="hutang_produktif" class="col-sm-4 col-form-label">Hutang produktif</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="hutang_produktif" placeholder="Rp." name="hutang_produktif" onkeyup="callPlot()">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="hutang_konsumtif" class="col-sm-4 col-form-label">Hutang konsumtif</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="hutang_konsumtif" placeholder="Rp." name="hutang_konsumtif" onkeyup="callPlot()">
+                            </div>
+                        </div>                        
+
+                        <div class="form-row">
+                            <label for="asuransi" class="col-sm-4 col-form-label">Asuransi</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="asuransi" placeholder="Rp." name="asuransi" onkeyup="callPlot()">
+                            </div>
+                        </div> 
+
+                        <div class="form-row">
+                            <label for="tabungan_investasi" class="col-sm-4 col-form-label">Tabungan dan investasi masa depan</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="tabungan_investasi" placeholder="Rp." name="tabungan_investasi" onkeyup="callPlot()">
+                            </div>
+                        </div> 
+
+                        <div class="form-row">
+                            <label for="biaya_kebutuhan" class="col-sm-4 col-form-label">Biaya Kebutuhan</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="biaya_kebutuhan" placeholder="Rp." name="biaya_kebutuhan" onkeyup="callPlot()">
+                            </div>
+                        </div> 
+
+                        <div class="form-row">
+                            <label for="biaya_gaya_hidup" class="col-sm-4 col-form-label">Biaya gaya hidup atau hobi</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="biaya_gaya_hidup" placeholder="Rp." name="biaya_gaya_hidup" onkeyup="callPlot()">
+                            </div>
+                        </div> 
+                    </form>
+                    
                     
                 </div>
               </div>
               
             </div>
           </section><!-- End perencanaan_anggaran Section -->
-      
-          
+
+          <!-- ======= Footer ======= -->
+        <footer id="footer">
+
+            <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                <div class="col-md-4 footer-contact">
+                    <h4>Partner</h4>
+                    <p><a href="http://awpacademy.com/">AWP Academy</a></p>
+                    <p><a href="http://www.qwpacademy.com/">QWP Academy</a></p>
+                    <br>
+                    <br>
+                    <h4>Socials</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/oke.finansial.9" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="https://www.instagram.com/okefinansial/" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <!-- <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a> -->
+                        <a href="https://www.linkedin.com/in/eko-usriyono-se-mm-cfp-qwp-aepp-7b168ba2/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                        <a href="https://mobile.twitter.com/Ekousriyono" class="twitter"><i class="bx bxl-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 footer-links">
+                    <h4>Additional Links</h4>
+                    <ul>
+                    <li><i class="bx bx-chevron-right"></i> <a href="https://www.okefinansial.com/comprehensive-financial-planning/#varian-single">Individual Coaching</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="https://www.okefinansial.com/gallery-ofin/">Our Works</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="https://www.okefinansial.com/blog/">Blog</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="https://www.okefinansial.com/special-case/">Special Case</a></li>
+                    <li><i class="bx bx-chevron-right"></i> <a href="https://www.okefinansial.com/certification-financial-planner/">Certification</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 footer-newsletter">                    
+                    <h4>Contact Us</h4>
+                    <h6>PT. Oke Finansial Indonesia</h6><br>
+                    Jl. Bukit Sakura II No. C 23 Bukit Wahid Regency, Semarang,  Jawa Tengah – Indonesia 50147<br>
+                    Telp +62 2476191771<br><br>
+                    <p>
+                    <strong>Phone:</strong> +62 8112922168<br>
+                    <strong>Email:</strong> info@okefinansial.com
+                    </p>
+                </div>
+
+                </div>
+            </div>
+            </div>
+
+            <div class="container d-md-flex py-4">
+
+            <div class="mr-md-auto text-center text-md-left">
+                <div class="copyright">
+                <strong><span>PT. Oke Finansial Indonesia</span></strong>&copy; 2019. All Rights Reserved
+                </div>
+                <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/lumia-bootstrap-business-template/ -->
+                Designed by <a href="https://rakkerja.id/">Rakkerja Creative</a>
+                </div>
+            </div>
+            </div>
+        </footer><!-- End Footer -->  
 
         <!-- Vendor JS Files -->
         <script src="assets/vendor/jquery/jquery.min.js"></script>
@@ -253,51 +279,13 @@
     
         <!-- hitungan table -->
         <script>
-            function SUM_HUTANG(){
-                var kpr = document.getElementById("sisa_hutang_kpr").value;
-                var kredit_kendaraan = document.getElementById("sisa_hutang_kredit_kendaraan").value;
-                var kredit_bisnis = document.getElementById("sisa_hutang_kredit_bisnis").value;
-                var hutang_lainnya = document.getElementById("sisa_hutang_lainnya").value;
-                var totalhutang = Number(kpr) + Number(kredit_kendaraan) + Number(kredit_bisnis) + Number(hutang_lainnya);
+            function SUM_PENDAPATAN(){
+                var pendapatan_aktif = document.getElementById("pendapatan_aktif").value;
+                var pendapatan_pasif= document.getElementById("pendapatan_pasif").value;
                 
-                var totalbiaya = document.getElementById("total_biaya").value;
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-
-                document.getElementById("total_hutang").value=totalhutang;
-
-                var result = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun);
-                var result1 = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
-
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
-            }
-
-            function SUM_HARI_ESOK(){
-                var pemakaman = document.getElementById("biaya_pemakaman").value;
-                var medis = document.getElementById("biaya_medis").value;
-                var pajak = document.getElementById("biaya_pajak").value;
-                var totalbiaya = Number(medis) + Number(pajak) + Number(pemakaman);
-                var totalhutang = document.getElementById("total_hutang").value;                
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-
-                document.getElementById("total_biaya").value=totalbiaya;
-
-                var result = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun);
-                var result1 = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun) + Number(pemasukanpertahun);
-
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
-            }
-
-            function sum_pendekatan_pemasukan(){
-                var totalhutang = document.getElementById("total_hutang").value;
-                var totalbiaya = document.getElementById("total_biaya").value;
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-                var result = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun);
-                var result1 = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
-
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
+                var total = Number(pendapatan_aktif) + Number(pendapatan_pasif);
+                
+                document.getElementById("total_pendapatan").value=total;
             }            
 
             function filterFunction() {
@@ -315,10 +303,63 @@
                     }
                 }
                 }
-                function myFunction() {
-                    document.getElementById("myDropdown").classList.toggle("show");
-                }
 
+            function myFunction() {
+                document.getElementById("myDropdown").classList.toggle("show");
+            }
+
+            function callPlot() {
+                var hutang_produktif = Number(document.getElementById("hutang_produktif").value);
+                var hutang_konsumtif = Number(document.getElementById("hutang_konsumtif").value);
+                var asuransi = Number(document.getElementById("asuransi").value);
+                var tabungan_investasi = Number(document.getElementById("tabungan_investasi").value);
+                var biaya_kebutuhan = Number(document.getElementById("biaya_kebutuhan").value);
+                var biaya_gaya_hidup = Number(document.getElementById("biaya_gaya_hidup").value);
+
+                // chart
+                var ctxP = document.getElementById("labelChart").getContext('2d');
+                var myPieChart = new Chart(ctxP, {
+                    plugins: [ChartDataLabels],
+                    type: 'doughnut',
+                    data: {
+                        labels: ["Hutang produktif", "Hutang konsumtif", "Asuransi", "Tabungan", "Biaya kebutuhan", "Biaya gaya hidup atau hobi"],
+                        datasets: [{
+                        data: [hutang_produktif, hutang_konsumtif, asuransi, tabungan_investasi, biaya_kebutuhan, biaya_gaya_hidup],
+                        backgroundColor: ["#00b8ff", "#475cff", "#2247ff", "#001eff", "#6700bf", "#c299e5"]
+                        // hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        tooltips: {
+                            enabled: false
+                        },
+                        legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            boxWidth: 10
+                        }
+                        },
+                        plugins: {
+                            datalabels: {
+                                formatter: (value, ctx) => {
+                                    let sum = 0;
+                                    let dataArr = ctx.chart.data.datasets[0].data;
+                                    dataArr.map(data => {
+                                        sum += data;
+                                    });
+                                    let percentage = (value*100 / sum).toFixed(2)+"%";
+                                    return percentage;
+                                },
+                                color: '#fff',
+                            }
+                        }
+                        
+                    }
+                    });
+            } 
+                
         </script>
     </body>
 </html>
