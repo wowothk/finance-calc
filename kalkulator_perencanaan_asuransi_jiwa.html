@@ -104,10 +104,17 @@
                   <img src="assets/img/about.jpg" class="img-fluid" alt="">
                 </div> -->
 
-                <div class="col-lg-6 calc">
+                <div class="col-lg-6">
                     <h3>Perencanaan Asuransi Jiwa</h3>
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <form action="forms/contact.php" method="post" role="form" class="php-email-form calc">
                         <!-- <div class="row"> -->
+                        <div class="form-row">
+                            <label for="nama_tertanggung" class="col-sm-4 col-form-label">Nama Tertanggung</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="nama_tertanggung" placeholder="Masukkan Nama" name="nama_tertanggung">
+                            </div>
+                        </div>
+
                         <div class="form-row">
                             <label for="sisa_hutang_kpr" class="col-sm-4 col-form-label">Sisa hutang KPR</label>
                             <div class="col-sm-8">
@@ -165,7 +172,7 @@
                         <div class="form-row  total">
                             <label for="total_biaya" class="col-sm-4 col-form-label">Total Biaya</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="total_biaya" placeholder="Rp." name="total_biaya" disabled onkeyup="sum_pendekatan_pemasukan()">
+                            <input type="text" class="form-control" id="total_biaya" placeholder="Rp." name="total_biaya" disabled onkeyup="SUM_HARI_ESOK()">
                             </div>
                         </div>
                         <!-- ## -->
@@ -180,21 +187,21 @@
                         <div class="form-row">
                             <label for="perlindungan_keluarga" class="col-sm-4 col-form-label">Masa perlindungan untuk keluarga</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="perlindungan_keluarga" placeholder="Rp." name="perlindungan_keluarga">
+                                <input type="text" class="form-control" id="perlindungan_keluarga" placeholder="Berapa Tahun" name="perlindungan_keluarga">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <label for="uang_pertanggungan" class="col-sm-4 col-form-label">Kebutuhan uang pertanggungan</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="uang_pertanggungan" placeholder="Rp." name="uang_pertanggungan" onkeyup="sum_pendekatan_pemasukan()">
+                                <input type="text" class="form-control" id="uang_pertanggungan" placeholder="Rp." name="uang_pertanggungan" onkeyup="sum_pendekatan_pemasukan()" disabled>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <label for="asumsi_investasi" class="col-sm-4 col-form-label">Asumsi pertumbuhan investasi</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="asumsi_investasi" placeholder="Rp." name="asumsi_investasi">
+                                <input type="text" class="form-control" id="asumsi_investasi" placeholder="Dalam Persen" name="asumsi_investasi" onkeyup="SUM_HARI_ESOK()">
                             </div>
                         </div>
 
@@ -304,52 +311,114 @@
     
         <!-- hitungan table -->
         <script>
+            function formatRupiah(angka, prefix){
+                var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split   		= number_string.split(','),
+                sisa     		= split[0].length % 3,
+                rupiah     		= split[0].substr(0, sisa),
+                ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+    
+                // tambahkan titik jika yang di input sudah menjadi angka ribuan
+                if(ribuan){
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                }
+    
+                rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+            }
+
+            function convertToNormal(angka) {
+                return Number(angka.replace(" ", "").replaceAll(".", "").replace("Rp", ""))
+            }
+
             function SUM_HUTANG(){
-                var kpr = document.getElementById("sisa_hutang_kpr").value;
-                var kredit_kendaraan = document.getElementById("sisa_hutang_kredit_kendaraan").value;
-                var kredit_bisnis = document.getElementById("sisa_hutang_kredit_bisnis").value;
-                var hutang_lainnya = document.getElementById("sisa_hutang_lainnya").value;
-                var totalhutang = Number(kpr) + Number(kredit_kendaraan) + Number(kredit_bisnis) + Number(hutang_lainnya);
+                var kpr = document.getElementById("sisa_hutang_kpr");
+                kpr.addEventListener('keyup', function(e){
+                    kpr.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                var kredit_kendaraan = document.getElementById("sisa_hutang_kredit_kendaraan");
+                kredit_kendaraan.addEventListener('keyup', function(e){
+                    kredit_kendaraan.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                var kredit_bisnis = document.getElementById("sisa_hutang_kredit_bisnis");
+                kredit_bisnis.addEventListener('keyup', function(e){
+                    kredit_bisnis.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                var hutang_lainnya = document.getElementById("sisa_hutang_lainnya");
+                hutang_lainnya.addEventListener('keyup', function(e){
+                    hutang_lainnya.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var totalhutang = convertToNormal(kpr.value) + convertToNormal(kredit_kendaraan.value) + convertToNormal(kredit_bisnis.value) + convertToNormal(hutang_lainnya.value);
                 
-                var totalbiaya = document.getElementById("total_biaya").value;
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
+                var totalbiaya = document.getElementById("total_biaya");
+                totalbiaya.addEventListener('keyup', function(e){
+                    totalbiaya.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var pemasukanpertahun = document.getElementById("pemasukan_pertahun");
+                pemasukanpertahun.addEventListener('keyup', function(e){
+                    pemasukanpertahun.value = formatRupiah(this.value, 'Rp. ');
+                });
 
-                document.getElementById("total_hutang").value=totalhutang;
+                document.getElementById("total_hutang").value= formatRupiah(String(totalhutang), 'Rp. ');
+                var perlindungan_keluarga = document.getElementById("perlindungan_keluarga").value;
+                var pajak = document.getElementById("biaya_pajak").value;
+                var asumsi_investasi = document.getElementById("asumsi_investasi").value;
 
-                var result = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun);
-                var result1 = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
+                var result = totalhutang + convertToNormal(totalbiaya.value) + (convertToNormal(pajak)*Number(perlindungan_keluarga));
+                var result1 = convertToNormal(pemasukanpertahun.value)/(Number(asumsi_investasi)/100);
 
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
+                document.getElementById("asuransi_jiwa_pemasukan").value = formatRupiah(String(result), 'Rp. ');
+                document.getElementById("asuransi_jiwa_retensi").value = formatRupiah(String(result1), 'Rp. ');;
             }
 
             function SUM_HARI_ESOK(){
-                var pemakaman = document.getElementById("biaya_pemakaman").value;
-                var medis = document.getElementById("biaya_medis").value;
-                var pajak = document.getElementById("biaya_pajak").value;
-                var totalbiaya = Number(medis) + Number(pajak) + Number(pemakaman);
-                var totalhutang = document.getElementById("total_hutang").value;                
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
+                var pemakaman = document.getElementById("biaya_pemakaman");
+                pemakaman.addEventListener('keyup', function(e){
+                    pemakaman.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var medis = document.getElementById("biaya_medis");
+                medis.addEventListener('keyup', function(e){
+                    medis.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var pajak = document.getElementById("biaya_pajak");
+                pajak.addEventListener('keyup', function(e){
+                    pajak.value = formatRupiah(this.value, 'Rp. ');
+                });
 
-                document.getElementById("total_biaya").value=totalbiaya;
+                var totalbiaya = convertToNormal(medis.value) + convertToNormal(pajak.value) + convertToNormal(pemakaman.value);
+                var totalhutang = convertToNormal(document.getElementById("total_hutang").value);                
+                var pemasukanpertahun = document.getElementById("pemasukan_pertahun");
+                pemasukanpertahun.addEventListener('keyup', function(e){
+                    pemasukanpertahun.value = formatRupiah(this.value, 'Rp. ');
+                });
 
-                var result = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun);
-                var result1 = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun) + Number(pemasukanpertahun);
+                var perlindungan_keluarga = document.getElementById("perlindungan_keluarga").value;
+                var asumsi_investasi = document.getElementById("asumsi_investasi").value;
+                document.getElementById("total_biaya").value = formatRupiah(String(totalbiaya), 'Rp. ');
 
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
+
+                var result = totalhutang + totalbiaya + (convertToNormal(pajak.value)*Number(perlindungan_keluarga));
+                var result1 = convertToNormal(pemasukanpertahun.value)/(Number(asumsi_investasi)/100);
+                document.getElementById("uang_pertanggungan").value = formatRupiah(String(convertToNormal(pajak.value)*Number(perlindungan_keluarga)), "Rp. ")
+                document.getElementById("asuransi_jiwa_pemasukan").value = formatRupiah(String(result), 'Rp. ');
+                document.getElementById("asuransi_jiwa_retensi").value = formatRupiah(String(result1), 'Rp. ');;
             }
 
             function sum_pendekatan_pemasukan(){
                 var totalhutang = document.getElementById("total_hutang").value;
                 var totalbiaya = document.getElementById("total_biaya").value;
                 var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-                var result = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun);
-                var result1 = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
+                var asumsi_investasi = document.getElementById("asumsi_investasi").value;
+                var result = convertToNormal(totalhutang) + convertToNormal(totalbiaya) + convertToNormal(pemasukanpertahun);
+                var result1 = convertToNormal(pemasukanpertahun)/(Number(asumsi_investasi)/100);
 
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
-            }            
+                document.getElementById("asuransi_jiwa_pemasukan").value = formatRupiah(String(result), 'Rp. ');;
+                document.getElementById("asuransi_jiwa_retensi").value = formatRupiah(String(result1), 'Rp. ');;
+            }
 
             function filterFunction() {
                 var input, filter, ul, li, a, i;

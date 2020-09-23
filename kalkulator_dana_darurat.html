@@ -108,68 +108,73 @@
                   <img src="assets/img/about.jpg" class="img-fluid" alt="">
                 </div> -->
 
-                <div class="col-lg-6 calc">
+                <div class="col-lg-6">
                     <h3>Dana Darurat</h3>
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <form action="forms/contact.php" method="post" role="form" class="php-email-form calc">
                         <!-- <div class="row"> -->
                         <div class="form-row">
                             <label for="hutang_produktif" class="col-sm-4 col-form-label">Hutang produktif (Hutang KPR)</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="hutang_produktif" placeholder="Rp." name="hutang_produktif">
+                            <input type="text" class="form-control" id="hutang_produktif" placeholder="Rp." name="hutang_produktif" onkeyup="Dana_Darurat()">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <label for="hutang_konsumtif" class="col-sm-4 col-form-label">Hutang konsumtif</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="hutang_konsumtif" placeholder="Rp." name="hutang_konsumtif" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="hutang_konsumtif" placeholder="Rp." name="hutang_konsumtif" onkeyup="Dana_Darurat()">
                             </div>
                         </div>                        
                         <div class="form-row">
                             <label for="premi_asuransi" class="col-sm-4 col-form-label">Premi asuransi</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="premi_asuransi" placeholder="Rp." name="premi_asuransi" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="premi_asuransi" placeholder="Rp." name="premi_asuransi" onkeyup="Dana_Darurat()">
                             </div>
                         </div>                        
                         <div class="form-row">
                             <label for="tabungan_masadepan" class="col-sm-4 col-form-label">Tabungan dan investasi masa depan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tabungan_masadepan" placeholder="Rp." name="tabungan_masadepan" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="tabungan_masadepan" placeholder="Rp." name="tabungan_masadepan" onkeyup="Dana_Darurat()">
                             </div>
                         </div>
-                        <div class="form-row jumlah-kebutuhan-pemasukan">
+                        <div class="form-row">
                             <label for="biaya_kebutuhan" class="col-sm-4 col-form-label">Biaya kebutuhan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="biaya_kebutuhan" placeholder="Rp." name="biaya_kebutuhan" onkeyup="sum_pendekatan_pemasukan()">
+                            <input type="text" class="form-control" id="biaya_kebutuhan" placeholder="Rp." name="biaya_kebutuhan" onkeyup="Dana_Darurat()">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <label for="biaya_gaya_hidup" class="col-sm-4 col-form-label">Target investasi saat ini</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="biaya_gaya_hidup" placeholder="Rp." name="biaya_gaya_hidup" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="biaya_gaya_hidup" placeholder="Rp." name="biaya_gaya_hidup" onkeyup="Dana_Darurat()">
                             </div>
                         </div>
 
 
-                        <div class="form-row jumlah-kebutuhan-pemasukan">
+                        <div class="form-row">
                             <label for="total_pengeluaran" class="col-sm-4 col-form-label">Total pengeluaran</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="total_pengeluaran" placeholder="Rp." name="total_pengeluaran" onkeyup="SUM_HUTANG()" disabled>
+                            <input type="text" class="form-control" id="total_pengeluaran" placeholder="Rp." name="total_pengeluaran" onkeyup="Dana_Darurat()" disabled>
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <label for="status_pernikahan" class="col-sm-4 col-form-label">Status Pernikahan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="status_pernikahan" placeholder="Rp." name="status_pernikahan" onkeyup="SUM_HUTANG()">
+                                <select name="status_pernikahan" id="status_pernikahan" onchange="Dana_Darurat()">
+                                    <option value="3">Single</option>
+                                    <option value="6">Menikah belum punya anak</option>
+                                    <option value="12">Menikah sudah punya anak</option>                                    
+                                  </select>
                             </div>
+                            
                         </div>
 
                         <div class="form-row jumlah-kebutuhan-retensi">
                             <label for="dana_darurat" class="col-sm-4 col-form-label">Dana Darurat yang dibutuhkan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="dana_darurat" placeholder="Rp." name="dana_darurat" onkeyup="SUM_HUTANG()" disabled>
+                            <input type="text" class="form-control" id="dana_darurat" placeholder="Rp." name="dana_darurat" onkeyup="Dana_Darurat()" disabled>
                             </div>
                         </div>
 
@@ -265,52 +270,62 @@
     
         <!-- hitungan table -->
         <script>
-            function SUM_HUTANG(){
-                var kpr = document.getElementById("sisa_hutang_kpr").value;
-                var kredit_kendaraan = document.getElementById("sisa_hutang_kredit_kendaraan").value;
-                var kredit_bisnis = document.getElementById("sisa_hutang_kredit_bisnis").value;
-                var hutang_lainnya = document.getElementById("sisa_hutang_lainnya").value;
-                var totalhutang = Number(kpr) + Number(kredit_kendaraan) + Number(kredit_bisnis) + Number(hutang_lainnya);
-                
-                var totalbiaya = document.getElementById("total_biaya").value;
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-
-                document.getElementById("total_hutang").value=totalhutang;
-
-                var result = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun);
-                var result1 = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
-
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
+            function formatRupiah(angka, prefix){
+                var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split   		= number_string.split(','),
+                sisa     		= split[0].length % 3,
+                rupiah     		= split[0].substr(0, sisa),
+                ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+    
+                // tambahkan titik jika yang di input sudah menjadi angka ribuan
+                if(ribuan){
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                }
+    
+                rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
             }
 
-            function SUM_HARI_ESOK(){
-                var pemakaman = document.getElementById("biaya_pemakaman").value;
-                var medis = document.getElementById("biaya_medis").value;
-                var pajak = document.getElementById("biaya_pajak").value;
-                var totalbiaya = Number(medis) + Number(pajak) + Number(pemakaman);
-                var totalhutang = document.getElementById("total_hutang").value;                
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-
-                document.getElementById("total_biaya").value=totalbiaya;
-
-                var result = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun);
-                var result1 = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun) + Number(pemasukanpertahun);
-
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
+            function convertToNormal(angka) {
+                return Number(angka.replace(" ", "").replaceAll(".", "").replace("Rp", ""))
             }
 
-            function sum_pendekatan_pemasukan(){
-                var totalhutang = document.getElementById("total_hutang").value;
-                var totalbiaya = document.getElementById("total_biaya").value;
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-                var result = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun);
-                var result1 = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
+            function Dana_Darurat(){
+                var hutang_produktif = document.getElementById("hutang_produktif");
+                hutang_produktif.addEventListener('keyup', function(e){
+                    hutang_produktif.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var hutang_konsumtif = document.getElementById("hutang_konsumtif");
+                hutang_konsumtif.addEventListener('keyup', function(e){
+                    hutang_konsumtif.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var premi_asuransi = document.getElementById("premi_asuransi");
+                premi_asuransi.addEventListener('keyup', function(e){
+                    premi_asuransi.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var tabungan_masadepan = document.getElementById("tabungan_masadepan");
+                tabungan_masadepan.addEventListener('keyup', function(e){
+                    tabungan_masadepan.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var biaya_kebutuhan = document.getElementById("biaya_kebutuhan");
+                biaya_kebutuhan.addEventListener('keyup', function(e){
+                    biaya_kebutuhan.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var biaya_gaya_hidup = document.getElementById("biaya_gaya_hidup");
+                biaya_gaya_hidup.addEventListener('keyup', function(e){
+                    biaya_gaya_hidup.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var res = convertToNormal(hutang_konsumtif.value) + convertToNormal(hutang_produktif.value) + convertToNormal(premi_asuransi.value) + convertToNormal(tabungan_masadepan.value) + convertToNormal(biaya_kebutuhan.value) + convertToNormal(biaya_gaya_hidup.value);
 
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
-            }            
+                document.getElementById("total_pengeluaran").value = formatRupiah(String(res), "Rp. ");
+                var status_kawin = document.getElementById("status_pernikahan");
+                var key = status_kawin.options[status_kawin.selectedIndex].value;
+                // window.alert(Number(key)*res)
+
+                document.getElementById("dana_darurat").value = formatRupiah(String(res*Number(key)), 'Rp. ');
+            }
+
 
             function filterFunction() {
                 var input, filter, ul, li, a, i;

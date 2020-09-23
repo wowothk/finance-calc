@@ -278,13 +278,41 @@
     
         <!-- hitungan table -->
         <script>
+            function formatRupiah(angka, prefix){
+                var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split   		= number_string.split(','),
+                sisa     		= split[0].length % 3,
+                rupiah     		= split[0].substr(0, sisa),
+                ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+    
+                // tambahkan titik jika yang di input sudah menjadi angka ribuan
+                if(ribuan){
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                }
+    
+                rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+            }
+
+            function convertToNormal(angka) {
+                return Number(angka.replace(" ", "").replaceAll(".", "").replace("Rp", ""))
+            }
+
             function SUM_PENDAPATAN(){
-                var pendapatan_aktif = document.getElementById("pendapatan_aktif").value;
-                var pendapatan_pasif= document.getElementById("pendapatan_pasif").value;
+                var pendapatan_aktif = document.getElementById("pendapatan_aktif");
+                pendapatan_aktif.addEventListener('keyup', function(e){
+                    pendapatan_aktif.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                var pendapatan_pasif= document.getElementById("pendapatan_pasif");
+                pendapatan_pasif.addEventListener('keyup', function(e){
+                    pendapatan_pasif.value = formatRupiah(this.value, 'Rp. ');
+                });
                 
-                var total = Number(pendapatan_aktif) + Number(pendapatan_pasif);
+                var total = convertToNormal(pendapatan_aktif.value) + convertToNormal(pendapatan_pasif.value);
                 
-                document.getElementById("total_pendapatan").value=total;
+                document.getElementById("total_pendapatan").value = formatRupiah(String(total), "Rp. ");
             }            
 
             function filterFunction() {
@@ -308,12 +336,30 @@
             }
 
             function callPlot() {
-                var hutang_produktif = Number(document.getElementById("hutang_produktif").value);
-                var hutang_konsumtif = Number(document.getElementById("hutang_konsumtif").value);
-                var asuransi = Number(document.getElementById("asuransi").value);
-                var tabungan_investasi = Number(document.getElementById("tabungan_investasi").value);
-                var biaya_kebutuhan = Number(document.getElementById("biaya_kebutuhan").value);
-                var biaya_gaya_hidup = Number(document.getElementById("biaya_gaya_hidup").value);
+                var hutang_produktif = document.getElementById("hutang_produktif");
+                hutang_produktif.addEventListener('keyup', function(e){
+                    hutang_produktif.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var hutang_konsumtif = document.getElementById("hutang_konsumtif");
+                hutang_konsumtif.addEventListener('keyup', function(e){
+                    hutang_konsumtif.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var asuransi = document.getElementById("asuransi");
+                asuransi.addEventListener('keyup', function(e){
+                    asuransi.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var tabungan_investasi = document.getElementById("tabungan_investasi");
+                tabungan_investasi.addEventListener('keyup', function(e){
+                    tabungan_investasi.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var biaya_kebutuhan = document.getElementById("biaya_kebutuhan");
+                biaya_kebutuhan.addEventListener('keyup', function(e){
+                    biaya_kebutuhan.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var biaya_gaya_hidup = document.getElementById("biaya_gaya_hidup");
+                biaya_gaya_hidup.addEventListener('keyup', function(e){
+                    biaya_gaya_hidup.value = formatRupiah(this.value, 'Rp. ');
+                });
 
                 // chart
                 var ctxP = document.getElementById("labelChart").getContext('2d');
@@ -323,13 +369,13 @@
                     data: {
                         labels: ["Hutang produktif", "Hutang konsumtif", "Asuransi", "Tabungan", "Biaya kebutuhan", "Biaya gaya hidup atau hobi"],
                         datasets: [{
-                        data: [hutang_produktif, hutang_konsumtif, asuransi, tabungan_investasi, biaya_kebutuhan, biaya_gaya_hidup],
+                        data: [convertToNormal(hutang_produktif.value), convertToNormal(hutang_konsumtif.value), convertToNormal(asuransi.value), convertToNormal(tabungan_investasi.value), convertToNormal(biaya_kebutuhan.value), convertToNormal(biaya_gaya_hidup.value)],
                         backgroundColor: ["#00b8ff", "#475cff", "#2247ff", "#001eff", "#6700bf", "#c299e5"]
                         // hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
                         }]
                     },
                     options: {
-                        responsive: true,
+                        // responsive: true,
                         tooltips: {
                             enabled: false
                         },

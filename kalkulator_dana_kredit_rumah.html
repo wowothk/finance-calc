@@ -109,9 +109,9 @@
                   <img src="assets/img/about.jpg" class="img-fluid" alt="">
                 </div> -->
 
-                <div class="col-lg-6 calc">
+                <div class="col-lg-6">
                     <h3>Dana Kredit Rumah</h3>
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <form action="forms/contact.php" method="post" role="form" class="php-email-form calc">
                         <!-- <div class="row"> -->
                         <div class="form-row">
                             <label for="lokasi" class="col-sm-4 col-form-label">Nama Lokasi</label>
@@ -295,52 +295,9 @@
     
         <!-- hitungan table -->
         <script>
-            function SUM_HUTANG(){
-                var kpr = document.getElementById("sisa_hutang_kpr").value;
-                var kredit_kendaraan = document.getElementById("sisa_hutang_kredit_kendaraan").value;
-                var kredit_bisnis = document.getElementById("sisa_hutang_kredit_bisnis").value;
-                var hutang_lainnya = document.getElementById("sisa_hutang_lainnya").value;
-                var totalhutang = Number(kpr) + Number(kredit_kendaraan) + Number(kredit_bisnis) + Number(hutang_lainnya);
-                
-                var totalbiaya = document.getElementById("total_biaya").value;
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-
-                document.getElementById("total_hutang").value=totalhutang;
-
-                var result = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun);
-                var result1 = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
-
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
+            function future_value(present_value, i, n) {
+                return present_value * Math.pow(1 + i, n);
             }
-
-            function SUM_HARI_ESOK(){
-                var pemakaman = document.getElementById("biaya_pemakaman").value;
-                var medis = document.getElementById("biaya_medis").value;
-                var pajak = document.getElementById("biaya_pajak").value;
-                var totalbiaya = Number(medis) + Number(pajak) + Number(pemakaman);
-                var totalhutang = document.getElementById("total_hutang").value;                
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-
-                document.getElementById("total_biaya").value=totalbiaya;
-
-                var result = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun);
-                var result1 = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun) + Number(pemasukanpertahun);
-
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
-            }
-
-            function sum_pendekatan_pemasukan(){
-                var totalhutang = document.getElementById("total_hutang").value;
-                var totalbiaya = document.getElementById("total_biaya").value;
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-                var result = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun);
-                var result1 = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
-
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
-            }            
 
             function filterFunction() {
                 var input, filter, ul, li, a, i;
