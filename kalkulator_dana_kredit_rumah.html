@@ -39,14 +39,24 @@
             <div class="logo mr-auto">
                 <!-- <h1><a href="index.html">Lumia</a></h1> -->
                 <!-- Uncomment below if you prefer to use an image logo -->
-                <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+                <a href="https://www.okefinansial.com"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
             </div>
 
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
                 <li class="active"><a href="https://www.okefinansial.com/">Home</a></li>
                 <li><a href="https://www.okefinansial.com/about">About Us</a></li>
-                <li><a href="https://www.okefinansial.com/financial-check-up/">Financial Check Up</a></li>
+                <!-- <li><a href="https://www.okefinansial.com/financial-check-up/">Financial Check Up</a></li> -->
+
+                <li class="drop-down"><a href="https://www.okefinansial.com/financial-check-up/">Financial Check Up</a>
+                    <ul>
+                    <!-- <li><a href="https://www.okefinansial.com/ofins-services/">Our Services</a></li> -->
+                    <li><a href="https://kalkulator.okefinansial.com/index.html">Kalkulator Perencanaan Anggaran</a></li>
+                    <li><a href="https://kalkulator.okefinansial.com/kalkulator_perencanaan_asuransi_jiwa.html">Kalkulator Perencanaan Asuransi Jiwa </a></li>
+                    <li><a href="https://kalkulator.okefinansial.com/kalkulator_dana_darurat.html/">Kalkulator Dana Darurat</a></li>
+                    </ul>
+                </li>
+
                 <li class="drop-down"><a href="https://www.okefinansial.com/ofins-services/">Our Services</a>
                     <ul>
                     <!-- <li><a href="https://www.okefinansial.com/ofins-services/">Our Services</a></li> -->
@@ -116,89 +126,95 @@
                         <div class="form-row">
                             <label for="lokasi" class="col-sm-4 col-form-label">Nama Lokasi</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="lokasi" placeholder="Rp." name="lokasi">
+                            <input type="text" class="form-control" id="lokasi" placeholder="Lokasi" name="lokasi">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <label for="harga_rumah" class="col-sm-4 col-form-label">Harga rumah saat ini</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="harga_rumah" placeholder="Rp." name="harga_rumah" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="harga_rumah" placeholder="Rp." name="harga_rumah" onkeyup="harga_setelah_kenaikan()">
                             </div>
                         </div>                        
                         <div class="form-row">
-                            <label for="waktu_tunggu" class="col-sm-4 col-form-label">Berapa lama lgi Anda akan beli rumah</label>
+                            <label for="waktu_tunggu" class="col-sm-4 col-form-label">Berapa lama lagi Anda akan beli rumah</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="waktu_tunggu" placeholder="Rp." name="waktu_tunggu" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="waktu_tunggu" placeholder="Berapa tahun" name="waktu_tunggu" onkeyup="harga_setelah_kenaikan()">
                             </div>
                         </div>                        
                         <div class="form-row">
                             <label for="kenaikan_harga" class="col-sm-4 col-form-label">Kenaikan harga rumah</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kenaikan_harga" placeholder="Rp." name="kenaikan_harga" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="kenaikan_harga" placeholder="Dalam persen" name="kenaikan_harga" onkeyup="harga_setelah_kenaikan()">
                             </div>
                         </div>
                         <div class="form-row jumlah-kebutuhan-pemasukan">
                             <label for="harga_terbaru" class="col-sm-4 col-form-label">Harga rumah setelah kenaikan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="harga_terbaru" placeholder="Rp." name="harga_terbaru" onkeyup="sum_pendekatan_pemasukan()">
+                            <input type="text" class="form-control" id="harga_terbaru" placeholder="Rp." name="harga_terbaru" onkeyup="harga_setelah_kenaikan()" disabled>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <label for="persentase_dp" class="col-sm-4 col-form-label">Persentase uang muka DP</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="persentase_dp" placeholder="Rp." name="persentase_dp" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="persentase_dp" placeholder="Dalam persen" name="persentase_dp" onkeyup="persiapan_uang_muka()">
                             </div>
                         </div>
-
 
                         <div class="form-row jumlah-kebutuhan-pemasukan">
                             <label for="uang_muka" class="col-sm-4 col-form-label">Uang muka yang harus disiapkan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="uang_muka" placeholder="Rp." name="uang_muka" onkeyup="SUM_HUTANG()" disabled>
+                            <input type="text" class="form-control" id="uang_muka" placeholder="Rp." name="uang_muka" onkeyup="" disabled>
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <label for="target_investasi_pertahun" class="col-sm-4 col-form-label">Target investasi pertahun</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="target_investasi_pertahun" placeholder="Rp." name="target_investasi_pertahun" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="target_investasi_pertahun" placeholder="Dalam persen" name="target_investasi_pertahun" onkeyup="">
                             </div>
                         </div>
-
-                        <div class="form-row jumlah-kebutuhan-pemasukan">
-                            <label for="tabungan_perbulan" class="col-sm-4 col-form-label">Tabungan uang muka rumah perbulan</label>
+                        
+                        <div class="form-row">
+                            <label for="tabungan_pertahun" class="col-sm-4 col-form-label">Tabungan uang muka rumah pertahun</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tabungan_perbulan" placeholder="Rp." name="tabungan_perbulan" onkeyup="SUM_HUTANG()" disabled>
+                            <input type="text" class="form-control" id="tabungan_pertahun" placeholder="Rp." name="tabungan_pertahun" onkeyup="" disabled>
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <label for="nominasi_kpr" class="col-sm-4 col-form-label">Nominasi KPR</label>
+                            <label for="tabungan_perbulan" class="col-sm-4 col-form-label">Tabungan uang muka rumah perbulan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nominasi_kpr" placeholder="Rp." name="nominasi_kpr" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="tabungan_perbulan" placeholder="Rp." name="tabungan_perbulan" onkeyup="" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="nominasi_kpr" class="col-sm-4 col-form-label">Nominal KPR</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="nominasi_kpr" placeholder="Rp." name="nominasi_kpr" onkeyup="">
                             </div>
                         </div>  
 
                         <div class="form-row">
                             <label for="bunga_kpr" class="col-sm-4 col-form-label">Bunga KPR</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="bunga_kpr" placeholder="Rp." name="bunga_kpr" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="bunga_kpr" placeholder="Dalam persen" name="bunga_kpr" onkeyup="">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <label for="jangka_pinjaman" class="col-sm-4 col-form-label">Jangka Pinjaman</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="jangka_pinjaman" placeholder="Rp." name="jangka_pinjaman" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="jangka_pinjaman" placeholder="Berapa tahun" name="jangka_pinjaman" onkeyup="">
                             </div>
                         </div>
 
                         <div class="form-row jumlah-kebutuhan-retensi">
                             <label for="angsuran_perbulan" class="col-sm-4 col-form-label">Angsuran KPR perbulan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="angsuran_perbulan" placeholder="Rp." name="angsuran_perbulan" onkeyup="SUM_HUTANG()" disabled>
+                            <input type="text" class="form-control" id="angsuran_perbulan" placeholder="Rp." name="angsuran_perbulan" onkeyup="" disabled>
                             </div>
                         </div>
 
@@ -295,8 +311,52 @@
     
         <!-- hitungan table -->
         <script>
+            function formatRupiah(angka, prefix){
+                var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split   		= number_string.split(','),
+                sisa     		= split[0].length % 3,
+                rupiah     		= split[0].substr(0, sisa),
+                ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+    
+                // tambahkan titik jika yang di input sudah menjadi angka ribuan
+                if(ribuan){
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                }
+    
+                rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+            }
+
+            function convertToNormal(angka) {
+                return Number(angka.replace(" ", "").replaceAll(".", "").replace("Rp", ""))
+            }
+
             function future_value(present_value, i, n) {
                 return present_value * Math.pow(1 + i, n);
+            }
+
+            function harga_setelah_kenaikan() {
+                var harga_rumah_saat_ini = document.getElementById("harga_rumah");
+                harga_rumah_saat_ini.addEventListener('keyup', function(e){
+                    harga_rumah_saat_ini.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var waktu_tunggu = document.getElementById("waktu_tunggu").value;
+                var kenaikan_harga = document.getElementById("kenaikan_harga").value;
+                document.getElementById("harga_terbaru").value = future_value(convertToNormal(harga_rumah_saat_ini), Number(kenaikan_harga), Number(waktu_tunggu));
+            }
+
+            function persiapan_uang_muka() {
+                var harga_terbaru = document.getElementById("harga_terbaru").value;
+                var persentase_dp = document.getElementById("persentase_dp").value;
+                document.getElementById("uang_muka").value = convertToNormal(harga_terbaru)*Number(persentase_dp)/100;
+            }
+
+            function uang_muka_pertahun_perbulan() {
+                var uang_muka = document.getElementById("uang_muka").value;
+                var waktu_tunggu = document.getElementById("waktu_tunggu").value;
+                document.getElementById("target_investasi_pertahun").value = convertToNormal(uang_muka)*Number(waktu_tunggu);
+                // document.getElementById("tabungan_perbulan").value =
             }
 
             function filterFunction() {

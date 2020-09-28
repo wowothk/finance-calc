@@ -42,16 +42,23 @@
       <div class="logo mr-auto">
         <!-- <h1><a href="index.html">Lumia</a></h1> -->
         <!-- Uncomment below if you prefer to use an image logo -->
-        <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+        <a href="https://www.okefinansial.com"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
       </div>
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="https://www.okefinansial.com/">Home</a></li>
           <li><a href="https://www.okefinansial.com/about">About Us</a></li>
-          <li><a href="https://www.okefinansial.com/financial-check-up/">Financial Check Up</a></li>
           <li class="drop-down"><a href="https://www.okefinansial.com/ofins-services/">Our Services</a>
             <ul>
+                <li class="drop-down"><a href="https://www.okefinansial.com/financial-check-up/">Financial Check Up</a>
+                    <ul>
+                    <!-- <li><a href="https://www.okefinansial.com/ofins-services/">Our Services</a></li> -->
+                    <li><a href="https://kalkulator.okefinansial.com/index.html">Kalkulator Perencanaan Anggaran</a></li>
+                    <li><a href="https://kalkulator.okefinansial.com/kalkulator_perencanaan_asuransi_jiwa.html">Kalkulator Perencanaan Asuransi Jiwa </a></li>
+                    <li><a href="https://kalkulator.okefinansial.com/kalkulator_dana_darurat.html/">Kalkulator Dana Darurat</a></li>
+                    </ul>
+                </li>
               <!-- <li><a href="https://www.okefinansial.com/ofins-services/">Our Services</a></li> -->
               <li><a href="https://www.okefinansial.com/book-planning/">Book Planning</a></li>
               <li><a href="https://www.okefinansial.com/ofin-talks/">OFIN's Talk</a></li>
@@ -103,10 +110,10 @@
                           <a href="index.html">Kalkulator Perencanaan Anggaran</a>
                           <a href="kalkulator_perencanaan_asuransi_jiwa.html">Kalkulator Perencanaan Asuransi Jiwa </a>
                           <a href="kalkulator_dana_darurat.html">Kalkulator Dana Darurat</a>
-                          <a href="kalkulator_dana_kredit_rumah.html">Kalkulator Kredit Pembelian Rumah</a>
+                          <!-- <a href="kalkulator_dana_kredit_rumah.html">Kalkulator Kredit Pembelian Rumah</a>
                           <a href="kalkulator_dana_kredit_kendaraan.html">Kalkulator Kredit Pembelian Kendaraan</a>
                           <a href="kalkulator_dana_pensiun.html">Kalkulator Perencanaan Dana Pensiun</a>                          
-                          <a href="kalkulator_kebutuhan.html">Kalkulator Apa Mimpimu</a>
+                          <a href="kalkulator_kebutuhan.html">Kalkulator Apa Mimpimu</a> -->
                         </div>
                     </div>
                     <br><br>
@@ -149,42 +156,42 @@
                         <div class="form-row">
                             <label for="hutang_produktif" class="col-sm-4 col-form-label">Hutang produktif</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="hutang_produktif" placeholder="Rp." name="hutang_produktif" onkeyup="callPlot()">
+                            <input type="text" class="form-control" id="hutang_produktif" placeholder="Rp." name="hutang_produktif" onkeyup="SUM_PENDAPATAN()" disabled>
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <label for="hutang_konsumtif" class="col-sm-4 col-form-label">Hutang konsumtif</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="hutang_konsumtif" placeholder="Rp." name="hutang_konsumtif" onkeyup="callPlot()">
+                            <input type="text" class="form-control" id="hutang_konsumtif" placeholder="Rp." name="hutang_konsumtif" onkeyup="SUM_PENDAPATAN()" disabled>
                             </div>
                         </div>                        
 
                         <div class="form-row">
                             <label for="asuransi" class="col-sm-4 col-form-label">Asuransi</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="asuransi" placeholder="Rp." name="asuransi" onkeyup="callPlot()">
+                            <input type="text" class="form-control" id="asuransi" placeholder="Rp." name="asuransi" onkeyup="callPlot()" disabled>
                             </div>
                         </div> 
 
                         <div class="form-row">
                             <label for="tabungan_investasi" class="col-sm-4 col-form-label">Tabungan dan investasi masa depan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tabungan_investasi" placeholder="Rp." name="tabungan_investasi" onkeyup="callPlot()">
+                            <input type="text" class="form-control" id="tabungan_investasi" placeholder="Rp." name="tabungan_investasi" onkeyup="SUM_PENDAPATAN()" disabled>
                             </div>
                         </div> 
 
                         <div class="form-row">
                             <label for="biaya_kebutuhan" class="col-sm-4 col-form-label">Biaya Kebutuhan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="biaya_kebutuhan" placeholder="Rp." name="biaya_kebutuhan" onkeyup="callPlot()">
+                            <input type="text" class="form-control" id="biaya_kebutuhan" placeholder="Rp." name="biaya_kebutuhan" onkeyup="SUM_PENDAPATAN()" disabled>
                             </div>
                         </div> 
 
                         <div class="form-row">
                             <label for="biaya_gaya_hidup" class="col-sm-4 col-form-label">Biaya gaya hidup atau hobi</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="biaya_gaya_hidup" placeholder="Rp." name="biaya_gaya_hidup" onkeyup="callPlot()">
+                            <input type="text" class="form-control" id="biaya_gaya_hidup" placeholder="Rp." name="biaya_gaya_hidup" onkeyup="SUM_PENDAPATAN()" disabled>
                             </div>
                         </div> 
                     </form>
@@ -313,6 +320,67 @@
                 var total = convertToNormal(pendapatan_aktif.value) + convertToNormal(pendapatan_pasif.value);
                 
                 document.getElementById("total_pendapatan").value = formatRupiah(String(total), "Rp. ");
+
+                var hutang_produktif = convertToNormal(document.getElementById("total_pendapatan").value) * 0.2;
+                document.getElementById("hutang_produktif").value = formatRupiah(String(hutang_produktif), 'Rp. ')
+
+                var hutang_konsumtif = convertToNormal(document.getElementById("total_pendapatan").value) * 0.15;
+                document.getElementById("hutang_konsumtif").value = formatRupiah(String(hutang_konsumtif), 'Rp. ')
+
+                var asuransi = convertToNormal(document.getElementById("total_pendapatan").value) * 0.1;
+                document.getElementById("asuransi").value = formatRupiah(String(asuransi), 'Rp. ')
+
+                var tabungan_investasi = convertToNormal(document.getElementById("total_pendapatan").value) * 0.1;
+                document.getElementById("tabungan_investasi").value = formatRupiah(String(tabungan_investasi), 'Rp. ')
+
+                var biaya_kebutuhan = convertToNormal(document.getElementById("total_pendapatan").value) * 0.4;
+                document.getElementById("biaya_kebutuhan").value = formatRupiah(String(biaya_kebutuhan), 'Rp. ')
+
+                var biaya_gaya_hidup= convertToNormal(document.getElementById("total_pendapatan").value) * 0.05;
+                document.getElementById("biaya_gaya_hidup").value = formatRupiah(String(biaya_gaya_hidup), 'Rp. ')
+
+                // chart
+                var ctxP = document.getElementById("labelChart").getContext('2d');
+                var myPieChart = new Chart(ctxP, {
+                    plugins: [ChartDataLabels],
+                    type: 'doughnut',
+                    data: {
+                        labels: ["Hutang produktif", "Hutang konsumtif", "Asuransi", "Tabungan", "Biaya kebutuhan", "Biaya gaya hidup atau hobi"],
+                        datasets: [{
+                        data: [hutang_produktif, hutang_konsumtif, asuransi, tabungan_investasi, biaya_kebutuhan, biaya_gaya_hidup],
+                        backgroundColor: ["#00b8ff", "#475cff", "#2247ff", "#001eff", "#6700bf", "#c299e5"]
+                        // hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+                        }]
+                    },
+                    options: {
+                        // responsive: true,
+                        tooltips: {
+                            enabled: false
+                        },
+                        legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            boxWidth: 10
+                        }
+                        },
+                        plugins: {
+                            datalabels: {
+                                formatter: (value, ctx) => {
+                                    let sum = 0;
+                                    let dataArr = ctx.chart.data.datasets[0].data;
+                                    dataArr.map(data => {
+                                        sum += data;
+                                    });
+                                    let percentage = (value*100 / sum).toFixed(2)+"%";
+                                    return percentage;
+                                },
+                                color: '#fff',
+                            }
+                        }
+                        
+                    }
+                    });
             }            
 
             function filterFunction() {
@@ -336,30 +404,33 @@
             }
 
             function callPlot() {
-                var hutang_produktif = document.getElementById("hutang_produktif");
-                hutang_produktif.addEventListener('keyup', function(e){
-                    hutang_produktif.value = formatRupiah(this.value, 'Rp. ');
-                });
-                var hutang_konsumtif = document.getElementById("hutang_konsumtif");
-                hutang_konsumtif.addEventListener('keyup', function(e){
-                    hutang_konsumtif.value = formatRupiah(this.value, 'Rp. ');
-                });
-                var asuransi = document.getElementById("asuransi");
-                asuransi.addEventListener('keyup', function(e){
-                    asuransi.value = formatRupiah(this.value, 'Rp. ');
-                });
-                var tabungan_investasi = document.getElementById("tabungan_investasi");
-                tabungan_investasi.addEventListener('keyup', function(e){
-                    tabungan_investasi.value = formatRupiah(this.value, 'Rp. ');
-                });
-                var biaya_kebutuhan = document.getElementById("biaya_kebutuhan");
-                biaya_kebutuhan.addEventListener('keyup', function(e){
-                    biaya_kebutuhan.value = formatRupiah(this.value, 'Rp. ');
-                });
-                var biaya_gaya_hidup = document.getElementById("biaya_gaya_hidup");
-                biaya_gaya_hidup.addEventListener('keyup', function(e){
-                    biaya_gaya_hidup.value = formatRupiah(this.value, 'Rp. ');
-                });
+                // var hutang_produktif = document.getElementById("hutang_produktif");
+                // hutang_produktif.addEventListener('keyup', function(e){
+                //     hutang_produktif.value = formatRupiah(this.value, 'Rp. ');
+                // });
+                // var hutang_konsumtif = document.getElementById("hutang_konsumtif");
+                // hutang_konsumtif.addEventListener('keyup', function(e){
+                //     hutang_konsumtif.value = formatRupiah(this.value, 'Rp. ');
+                // });
+                // var asuransi = document.getElementById("asuransi");
+                // asuransi.addEventListener('keyup', function(e){
+                //     asuransi.value = formatRupiah(this.value, 'Rp. ');
+                // });
+                // var tabungan_investasi = document.getElementById("tabungan_investasi");
+                // tabungan_investasi.addEventListener('keyup', function(e){
+                //     tabungan_investasi.value = formatRupiah(this.value, 'Rp. ');
+                // });
+                // var biaya_kebutuhan = document.getElementById("biaya_kebutuhan");
+                // biaya_kebutuhan.addEventListener('keyup', function(e){
+                //     biaya_kebutuhan.value = formatRupiah(this.value, 'Rp. ');
+                // });
+                // var biaya_gaya_hidup = document.getElementById("biaya_gaya_hidup");
+                // biaya_gaya_hidup.addEventListener('keyup', function(e){
+                //     biaya_gaya_hidup.value = formatRupiah(this.value, 'Rp. ');
+                // });
+                
+                var hutang_produktif = convertToNormal(document.getElementById("total_pendapatan").value) * 0.2;
+                document.getElementById("hutang_produktif").value = formatRupiah(hutang_produktif, 'Rp. ')
 
                 // chart
                 var ctxP = document.getElementById("labelChart").getContext('2d');
