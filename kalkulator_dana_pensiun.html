@@ -33,45 +33,53 @@
     </head>
     <body>
             <!-- ======= Header ======= -->
-        <header id="header" class="fixed-top d-flex align-items-center">
-            <div class="container d-flex align-items-center">
-
-            <div class="logo mr-auto">
-                <!-- <h1><a href="index.html">Lumia</a></h1> -->
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-            </div>
-
-            <nav class="nav-menu d-none d-lg-block">
-                <ul>
-                <li class="active"><a href="https://www.okefinansial.com/">Home</a></li>
-                <li><a href="https://www.okefinansial.com/about">About Us</a></li>
-                <li><a href="https://www.okefinansial.com/financial-check-up/">Financial Check Up</a></li>
-                <li class="drop-down"><a href="https://www.okefinansial.com/ofins-services/">Our Services</a>
+            <header id="header" class="fixed-top d-flex align-items-center">
+                <div class="container d-flex align-items-center">
+            
+                  <div class="logo mr-auto">
+                    <!-- <h1><a href="index.html">Lumia</a></h1> -->
+                    <!-- Uncomment below if you prefer to use an image logo -->
+                    <a href="https://www.okefinansial.com"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
+                  </div>
+            
+                  <nav class="nav-menu d-none d-lg-block">
                     <ul>
-                    <!-- <li><a href="https://www.okefinansial.com/ofins-services/">Our Services</a></li> -->
-                    <li><a href="https://www.okefinansial.com/book-planning/">Book Planning</a></li>
-                    <li><a href="https://www.okefinansial.com/ofin-talks/">OFIN's Talk</a></li>
-                    <li><a href="https://www.okefinansial.com/consulting/">Consulting</a></li>
-                    <li><a href="https://www.okefinansial.com/company/">Company</a></li>
-                    <li class="drop-down"><a href="https://www.okefinansial.com/certification-financial-planner/">Certification</a>
+                      <li class="active"><a href="https://www.okefinansial.com/">Home</a></li>
+                      <li><a href="https://www.okefinansial.com/about">About</a></li>
+                      <li><a href="https://www.okefinansial.com/financial-planning">Financial Planning</a></li>
+                      <li class="drop-down"><a href="https://www.okefinansial.com/ofins-services/">Our Services</a>
                         <ul>
-                        <!-- <li><a href="">Certification</a></li> -->
-                        <li><a href="https://www.okefinansial.com/associated-wealth-planner-awp-certification/">AWP Certification</a></li>
-                        <li><a href="https://www.okefinansial.com/qwp-certification/">QWP Certification</a></li>
-                        <li><a href="https://www.okefinansial.com/ofin-certification-2/">OFIN's Certification</a></li>
+                            <li><a href="https://www.okefinansial.com/financial-check-up/">Financial Check Up</a>
+                            <li class="drop-down"><a href="#">Kalkulator Financial</a>
+                                <ul>
+                                <li><a href="https://kalkulator.okefinansial.com/index.html">Kalkulator Perencanaan Anggaran</a></li>
+                                <li><a href="https://kalkulator.okefinansial.com/kalkulator_perencanaan_asuransi_jiwa.html">Kalkulator Perencanaan Asuransi Jiwa </a></li>
+                                <li><a href="https://kalkulator.okefinansial.com/kalkulator_dana_darurat.html/">Kalkulator Dana Darurat</a></li>
+                                </ul>
+                            </li>
+                          <!-- <li><a href="https://www.okefinansial.com/ofins-services/">Our Services</a></li> -->
+                          <li><a href="https://www.okefinansial.com/book-planning/">Book Planning</a></li>
+                          <li><a href="https://www.okefinansial.com/ofin-talks/">OFIN's Talk</a></li>
+                          <li><a href="https://www.okefinansial.com/consulting/">Consulting</a></li>
+                          <li><a href="https://www.okefinansial.com/company/">Company</a></li>
+                          <li class="drop-down"><a href="https://www.okefinansial.com/certification-financial-planner/">Certification</a>
+                            <ul>
+                              <!-- <li><a href="">Certification</a></li> -->
+                              <li><a href="https://www.okefinansial.com/associated-wealth-planner-awp-certification/">AWP Certification</a></li>
+                              <li><a href="https://www.okefinansial.com/qwp-certification/">QWP Certification</a></li>
+                              <li><a href="https://www.okefinansial.com/ofin-certification-2/">OFIN's Certification</a></li>
+                            </ul>
+                          </li>
                         </ul>
-                    </li>
+                      </li>
+                      <li><a href="https://www.okefinansial.com/blog/">News & Event</a></li>
+                      <li><a href="https://www.okefinansial.com/gallery-ofin/">Gallery</a></li>
+                      <li><a href="https://www.okefinansial.com/contact-us/">Contact Us</a></li>
+            
                     </ul>
-                </li>
-                <li><a href="https://www.okefinansial.com/blog/">News & Event</a></li>
-                <li><a href="https://www.okefinansial.com/gallery-ofin/">Gallery</a></li>
-                <li><a href="https://www.okefinansial.com/contact-us/">Contact Us</a></li>
-
-                </ul>
-            </nav><!-- .nav-menu -->
-            </div>
-        </header><!-- End Header -->    
+                  </nav><!-- .nav-menu -->
+                </div>
+              </header><!-- End Header -->  
         <section id="perencanaan_anggaran" class="perencanaan_anggaran">
             <div class="container">
       
@@ -111,76 +119,127 @@
                     <h3>Persiapan Dana Pensiun</h3>
                     <form action="forms/contact.php" method="post" role="form" class="php-email-form calc">
                         <!-- <div class="row"> -->
+                        <!-- start sec 1 -->
+                        <div class="form-row">
+                            <label for="orang" class="col-sm-4 col-form-label">Dana Pensiun Untuk</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="orang" placeholder="" name="orang">
+                            </div>
+                        </div>
+
                         <div class="form-row">
                             <label for="usia" class="col-sm-4 col-form-label">Usia saat ini</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="usia" placeholder="Rp." name="usia">
+                            <input type="text" class="form-control" id="usia" placeholder="Berapa Usia Anda" name="usia" onkeyup="waktu_tunggu_pertahun()">
                             </div>
                         </div>
                         
                         <div class="form-row">
-                            <label for="rencana_pensiun" class="col-sm-4 col-form-label">Rencana usia pensiun</label>
+                            <label for="rencana_pensiun" class="col-sm-4 col-form-label">Usia Pensiun yang diinginkan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="rencana_pensiun" placeholder="Rp." name="rencana_pensiun" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="rencana_pensiun" placeholder="" name="rencana_pensiun" onkeyup="waktu_tunggu_pertahun()">
                             </div>
                         </div>                        
+
                         <div class="form-row">
-                            <label for="perkiraan_lama_pensiun" class="col-sm-4 col-form-label">Perkiraan lama pensiun</label>
+                            <label for="kapan_pensiun" class="col-sm-4 col-form-label">Waktu menuju persiapan pensiun</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="perkiraan_lama_pensiun" placeholder="Rp." name="perkiraan_lama_pensiun" onkeyup="SUM_HUTANG()">
-                            </div>
-                        </div>                        
-                        <div class="form-row">
-                            <label for="pengeluaran_tahunan" class="col-sm-4 col-form-label">Pengeluaran tahunan saat ini</label>
-                            <div class="col-sm-8">
-                            <input type="text" class="form-control" id="pengeluaran_tahunan" placeholder="Rp." name="pengeluaran_tahunan" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="kapan_pensiun" placeholder="" name="kapan_pensiun" onkeyup="final_result()" disabled>
                             </div>
                         </div>
-                        <div class="form-row jumlah-kebutuhan-pemasukan">
-                            <label for="inflasi" class="col-sm-4 col-form-label">Inflasi</label>
+                        <div class="form-row">
+                            <label for="perkiraan_lama_pensiun" class="col-sm-4 col-form-label">Sampai usia berapa dana pensiun dibutuhkan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="inflasi" placeholder="Rp." name="inflasi" onkeyup="sum_pendekatan_pemasukan()">
+                            <input type="text" class="form-control" id="perkiraan_lama_pensiun" placeholder="" name="perkiraan_lama_pensiun" onkeyup="estimasi_hidup()">
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <label for="target_investasi" class="col-sm-4 col-form-label">Target investasi saat ini</label>
+                            <label for="estimasi_harapan_hidup" class="col-sm-4 col-form-label">Estimasi harapan hidup</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="target_investasi" placeholder="Rp." name="target_investasi" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="estimasi_harapan_hidup" placeholder="" name="estimasi_harapan_hidup" onkeyup="final_result()" disabled>
+                            </div>
+                        </div>
+                        <!-- end of sec 1 -->
+                        <div class="form-row">
+                            <label for="biaya_hidup_saat_ini" class="col-sm-4 col-form-label">Biaya hidup bulanan saat ini</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="biaya_hidup_saat_ini" placeholder="Rp." name="biaya_hidup_saat_ini" onkeyup="biaya_hidup()">
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <label for="pengeluaran_tahunan_pensiun" class="col-sm-4 col-form-label">Pengeluaran tahunan pada masa pensiun</label>
+                            <label for="persentase_kebutuhan" class="col-sm-4 col-form-label">Persentase dari biaya bulanan yang diinginkan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="pengeluaran_tahunan_pensiun" placeholder="Rp." name="pengeluaran_tahunan_pensiun" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="persentase_kebutuhan" placeholder="Dalam persen" name="persentase_kebutuhan" onkeyup="biaya_hidup()">
                             </div>
                         </div>
 
-                        <div class="form-row jumlah-kebutuhan-pemasukan">
-                            <label for="dana_pensiun" class="col-sm-4 col-form-label">Dana pensiun yang dibutuhkan</label>
+                        <div class="form-row">
+                            <label for="biaya_hidup_bulanan" class="col-sm-4 col-form-label">Biaya hidup masa pensiun bulanan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="dana_pensiun" placeholder="Rp." name="dana_pensiun" onkeyup="SUM_HUTANG()" disabled>
+                            <input type="text" class="form-control" id="biaya_hidup_bulanan" placeholder="Rp" name="biaya_hidup_bulanan" onkeyup="final_result()" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="biaya_hidup_tahunan" class="col-sm-4 col-form-label">Biaya hidup masa pensiun tahunan</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="biaya_hidup_tahunan" placeholder="Rp" name="biaya_hidup_tahunan" onkeyup="final_result()" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="inflasi" class="col-sm-4 col-form-label">Tingkat Inflasi</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="inflasi" placeholder="Dalam persen" name="inflasi" onkeyup="final_result()">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="investasi" class="col-sm-4 col-form-label">Tingkat Investasi Persiapan Pensiun</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="investasi" placeholder="Dalam persen" name="investasi" onkeyup="final_result()">
+                            </div>
+                        </div>
+
+                        <!-- future value -->
+                        <div class="form-row">
+                            <label for="fv_pengeluaran_bulanan" class="col-sm-4 col-form-label">Nilai masa depan keinginan pengeluaran bulanan</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="fv_pengeluaran_bulanan" placeholder="Rp" name="fv_pengeluaran_bulanan" onkeyup="final_result()" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="fv_pengeluaran_tahunan" class="col-sm-4 col-form-label">Nilai masa depan keinginan pengeluaran tahunan</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="fv_pengeluaran_tahunan" placeholder="Rp" name="fv_pengeluaran_tahunan" onkeyup="final_result()" disabled> 
+                            </div>
+                        </div>
+                        <!-- end future value -->
+
+                        <div class="form-row">
+                            <label for="dana_pensiun" class="col-sm-4 col-form-label">Jumlah dana pensiun yang dibutuhkan</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="dana_pensiun" placeholder="Rp" name="dana_pensiun" onkeyup="final_result()" disabled>
                             </div>
                         </div>
                         
                         <div class="form-row">
-                            <label for="masa_persiapan" class="col-sm-4 col-form-label">Masa penyiapan dana pensiun</label>
+                            <label for="tabungan" class="col-sm-4 col-form-label">Menabung di bank</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="masa_persiapan" placeholder="Rp." name="masa_persiapan" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="tabungan" placeholder="Rp" name="tabungan" onkeyup="final_result()" disabled>
                             </div>
                         </div>
 
-                        <div class="form-row jumlah-kebutuhan-retensi">
-                            <label for="jumlah_investasi" class="col-sm-4 col-form-label">Jumlah investasi perbulan</label>
+                        <div class="form-row">
+                            <label for="investasi_perbulan" class="col-sm-4 col-form-label">Investasi perbuan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="jumlah_investasi" placeholder="Rp." name="jumlah_investasi" onkeyup="SUM_HUTANG()" disabled>
+                            <input type="text" class="form-control" id="investasi_perbulan" placeholder="Rp" name="investasi_perbulan" onkeyup="final_result()" disabled>
                             </div>
                         </div>
-
-                        <!-- </div> -->
                     </form>
-                    
                 </div>
               </div>
               
@@ -270,52 +329,102 @@
     
         <!-- hitungan table -->
         <script>
-            function SUM_HUTANG(){
-                var kpr = document.getElementById("sisa_hutang_kpr").value;
-                var kredit_kendaraan = document.getElementById("sisa_hutang_kredit_kendaraan").value;
-                var kredit_bisnis = document.getElementById("sisa_hutang_kredit_bisnis").value;
-                var hutang_lainnya = document.getElementById("sisa_hutang_lainnya").value;
-                var totalhutang = Number(kpr) + Number(kredit_kendaraan) + Number(kredit_bisnis) + Number(hutang_lainnya);
+            function formatRupiah(angka, prefix){
+                var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split   		= number_string.split(','),
+                sisa     		= split[0].length % 3,
+                rupiah     		= split[0].substr(0, sisa),
+                ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+    
+                // tambahkan titik jika yang di input sudah menjadi angka ribuan
+                if(ribuan){
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                }
+    
+                rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+            }
+
+            function convertToNormal(angka) {
+                return Number(angka.replace(" ", "").replaceAll(".", "").replace("Rp", ""))
+            }
+
+            function waktu_tunggu_pertahun() {
+                var usia = document.getElementById("usia").value;
+                var rencana_penisun = document.getElementById("rencana_pensiun").value;
+                document.getElementById("kapan_pensiun").value =  Number(rencana_penisun)-Number(usia);
+            }
+
+            function estimasi_hidup() {
+                var rencana_pensiun = document.getElementById("rencana_pensiun").value;
+                var perkiraan_lama_pensiun = document.getElementById("perkiraan_lama_pensiun").value;
+                document.getElementById("estimasi_harapan_hidup").value = Number(perkiraan_lama_pensiun) - Number(rencana_pensiun);
+            } 
+
+            function biaya_hidup() {
+                var biaya_hidup_saat_ini = document.getElementById("biaya_hidup_saat_ini");
+                biaya_hidup_saat_ini.addEventListener('keyup', function(e){
+                    biaya_hidup_saat_ini.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                var persentase_kebutuhan = document.getElementById("persentase_kebutuhan").value;
                 
-                var totalbiaya = document.getElementById("total_biaya").value;
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-
-                document.getElementById("total_hutang").value=totalhutang;
-
-                var result = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun);
-                var result1 = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
-
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
+                biaya_hidup_bulanan = convertToNormal(biaya_hidup_saat_ini.value)*Number(persentase_kebutuhan)/100;
+                document.getElementById("biaya_hidup_bulanan").value = formatRupiah(String(biaya_hidup_bulanan), "Rp. ");
+                document.getElementById("biaya_hidup_tahunan").value = formatRupiah(String(biaya_hidup_bulanan*12), "Rp. ");
             }
 
-            function SUM_HARI_ESOK(){
-                var pemakaman = document.getElementById("biaya_pemakaman").value;
-                var medis = document.getElementById("biaya_medis").value;
-                var pajak = document.getElementById("biaya_pajak").value;
-                var totalbiaya = Number(medis) + Number(pajak) + Number(pemakaman);
-                var totalhutang = document.getElementById("total_hutang").value;                
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-
-                document.getElementById("total_biaya").value=totalbiaya;
-
-                var result = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun);
-                var result1 = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun) + Number(pemasukanpertahun);
-
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
+            function future_value(present_value, i, n) {
+                // i : presentase
+                // n : waktu
+                return present_value * Math.pow(1 + i, n);
             }
 
-            function sum_pendekatan_pemasukan(){
-                var totalhutang = document.getElementById("total_hutang").value;
-                var totalbiaya = document.getElementById("total_biaya").value;
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-                var result = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun);
-                var result1 = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
+            function nilai_masa_depan() {
+                var inflasi = document.getElementById("inflasi").value;
+                var investasi = document.getElementById("investasi").value;
+                var kapan_pensiun = document.getElementById('kapan_pensiun').value;
 
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
-            }            
+                var biaya_hidup_bulanan = convertToNormal(document.getElementById("biaya_hidup_bulanan").value);
+                var biaya_hidup_tahunan = convertToNormal(document.getElementById("biaya_hidup_tahunan").value);
+                var fv_bulanan = Math.round(future_value(biaya_hidup_bulanan, Number(inflasi)/100, Number(kapan_pensiun)));
+                var fv_tahunan = Math.round(future_value(biaya_hidup_tahunan, Number(investasi)/100, Number(kapan_pensiun)));
+
+                document.getElementById('fv_pengeluaran_bulanan').value = formatRupiah(String(fv_bulanan), "Rp. ");
+                document.getElementById('fv_pengeluaran_tahunan').value = formatRupiah(String(fv_tahunan), "Rp. ");
+            }
+
+            function pmt(present, i, n){
+                return (i*present)/(1 - Math.pow(1+i,-n));
+            }
+
+            function final_result(){
+                var inflasi = document.getElementById("inflasi").value;
+                var investasi = document.getElementById("investasi").value;
+                var kapan_pensiun = document.getElementById('kapan_pensiun').value;
+
+                var biaya_hidup_bulanan = convertToNormal(document.getElementById("biaya_hidup_bulanan").value);
+                var biaya_hidup_tahunan = convertToNormal(document.getElementById("biaya_hidup_tahunan").value);
+                var fv_bulanan = Math.round(future_value(biaya_hidup_bulanan, Number(inflasi)/100, Number(kapan_pensiun)));
+                var fv_tahunan = Math.round(future_value(biaya_hidup_tahunan, Number(inflasi)/100, Number(kapan_pensiun)));
+
+                document.getElementById('fv_pengeluaran_bulanan').value = formatRupiah(String(fv_bulanan), "Rp. ");
+                document.getElementById('fv_pengeluaran_tahunan').value = formatRupiah(String(fv_tahunan), "Rp. ");
+
+                var fv_pengeluaran_tahunan = convertToNormal(document.getElementById("fv_pengeluaran_tahunan").value);
+                var estimasi_harapan_hidup = document.getElementById("estimasi_harapan_hidup").value;
+                // var kapan_pensiun = document.getElementById("kapan_pensiun").value;
+                // var investasi = document.getElementById("investasi").value;
+
+                var dana_pensiun = fv_pengeluaran_tahunan * Number(estimasi_harapan_hidup);
+                var tabungan = dana_pensiun/(Number(kapan_pensiun)*12);
+                var investasi_perbulan = Math.round(pmt(dana_pensiun, Number(investasi)/1200, Number(kapan_pensiun)*12));
+                
+                document.getElementById("dana_pensiun").value = formatRupiah(String(dana_pensiun), "Rp. ");
+                document.getElementById("tabungan").value = formatRupiah(String(tabungan), "Rp. ");
+                document.getElementById("investasi_perbulan").value = formatRupiah(String(investasi_perbulan), "Rp. ");
+            }
 
             function filterFunction() {
                 var input, filter, ul, li, a, i;

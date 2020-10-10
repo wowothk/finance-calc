@@ -118,95 +118,137 @@
                     <form action="forms/contact.php" method="post" role="form" class="php-email-form calc">
                         <!-- <div class="row"> -->
                         <div class="form-row">
-                            <label for="nama_kendaraan" class="col-sm-4 col-form-label">Merk kendaraan</label>
+                            <label for="nama_kendaraan" class="col-sm-4 col-form-label">Nama kendaraan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nama_kendaraan" placeholder="Rp." name="nama_kendaraan">
+                            <input type="text" class="form-control" id="nama_kendaraan" placeholder="Nama kendaraan impian anda" name="nama_kendaraan">
                             </div>
                         </div>
                         
                         <div class="form-row">
-                            <label for="harga_kendaraan" class="col-sm-4 col-form-label">Harga kendaraan</label>
+                            <label for="harga_kendaraan" class="col-sm-4 col-form-label">Harga saat ini</label>
                             <div class="col-sm-8">
                             <input type="text" class="form-control" id="harga_kendaraan" placeholder="Rp." name="harga_kendaraan" onkeyup="SUM_HUTANG()">
                             </div>
                         </div>                        
+                        
                         <div class="form-row">
-                            <label for="dp_kendaraan" class="col-sm-4 col-form-label">Uang muka kendaraan</label>
+                            <label for="waktu_tunggu" class="col-sm-4 col-form-label">Jangka waktu pembelian</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="dp_kendaraan" placeholder="Rp." name="dp_kendaraan" onkeyup="SUM_HUTANG()">
-                            </div>
-                        </div>                        
-                        <div class="form-row">
-                            <label for="waktu_tunggu" class="col-sm-4 col-form-label">Berapa lama lagi kamu akan beli (bulan)</label>
-                            <div class="col-sm-8">
-                            <input type="text" class="form-control" id="waktu_tunggu" placeholder="Rp." name="waktu_tunggu" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="waktu_tunggu" placeholder="Berapa tahun" name="waktu_tunggu" onkeyup="result()">
                             </div>
                         </div>
 
                         <div class="form-row jumlah-kebutuhan-pemasukan">
                             <label for="kenaikan_harga" class="col-sm-4 col-form-label">Kenaikan harga kendaraan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kenaikan_harga" placeholder="Rp." name="kenaikan_harga" onkeyup="sum_pendekatan_pemasukan()">
+                            <input type="text" class="form-control" id="kenaikan_harga" placeholder="Dalam persen" name="kenaikan_harga" onkeyup="result()">
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <label for="harga_mendatang" class="col-sm-4 col-form-label">Harga kendaraan yang akan datang</label>
+                            <label for="harga_mendatang" class="col-sm-4 col-form-label">Harga kendaraan setelah kenaikan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="harga_mendatang" placeholder="Rp." name="harga_mendatang" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="harga_mendatang" placeholder="Rp." name="harga_mendatang" onkeyup="result()" disabled>
                             </div>
                         </div>
 
+                        <div class="form-row">
+                            <label for="persentase_uang_muka" class="col-sm-4 col-form-label">Persentase uang muka</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="persentase_uang_muka" placeholder="Dalam persen" name="persentase_uang_muka" onkeyup="result()">
+                            </div>
+                        </div>
 
                         <div class="form-row jumlah-kebutuhan-pemasukan">
                             <label for="kebutuhan_uang_muka" class="col-sm-4 col-form-label">Uang muka yang harus disiapkan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kebutuhan_uang_muka" placeholder="Rp." name="kebutuhan_uang_muka" onkeyup="SUM_HUTANG()" disabled>
+                            <input type="text" class="form-control" id="kebutuhan_uang_muka" placeholder="Rp." name="kebutuhan_uang_muka" onkeyup="result()" disabled>
                             </div>
                         </div>
                         
                         <div class="form-row">
+                            <label for="biaya_admin" class="col-sm-4 col-form-label">Biaya admin kredit</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="biaya_admin" placeholder="Rp." name="biaya_admin" onkeyup="result()">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="biaya_asuransi" class="col-sm-4 col-form-label">Biaya asuransi kendaraan</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="biaya_asuransi" placeholder="Rp." name="biaya_asuransi" onkeyup="result()">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="total_dp" class="col-sm-4 col-form-label">Total DP yang harus disiapkan</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="total_dp" placeholder="Rp." name="total_dp" onkeyup="result()">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
                             <label for="target_investasi" class="col-sm-4 col-form-label">Target Investasi Pertahun</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="target_investasi" placeholder="Rp." name="target_investasi" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="target_investasi" placeholder="Dalam persen" name="target_investasi" onkeyup="result()">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <label for="tabungan" class="col-sm-4 col-form-label">Menabung di Bank</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="tabungan" placeholder="Rp." name="tabungan" onkeyup="result()" disabled>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <label for="investasi_perbulan" class="col-sm-4 col-form-label">Investasi perbulan untuk DP</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="investasi_perbulan" placeholder="Rp." name="investasi_perbulan" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="investasi_perbulan" placeholder="Rp." name="investasi_perbulan" onkeyup="result()" disabled>
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <label for="nominal_pinjaman" class="col-sm-4 col-form-label">Nominal pinjaman kendaraan</label>
+                            <label for="nominal_pinjaman" class="col-sm-4 col-form-label">Nominal kredit kendaraan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nominal_pinjaman" placeholder="Rp." name="nominal_pinjaman" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="nominal_pinjaman" placeholder="Rp." name="nominal_pinjaman" onkeyup="result()" disabled>
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <label for="bunga_tahunan" class="col-sm-4 col-form-label">Bunga kendaraan pertahun</label>
+                            <label for="bunga_tahunan" class="col-sm-4 col-form-label">Bunga kredit</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="bunga_tahunan" placeholder="Rp." name="bunga_tahunan" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="bunga_tahunan" placeholder="Dalam persen" name="bunga_tahunan" onkeyup="result()">
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <label for="periode_pinjaman" class="col-sm-4 col-form-label">Periode pinjaman (bulan)</label>
+                            <label for="periode_pinjaman" class="col-sm-4 col-form-label">Jangka waktu pinjaman (tahun)</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="periode_pinjaman" placeholder="Rp." name="periode_pinjaman" onkeyup="SUM_HUTANG()">
+                            <input type="text" class="form-control" id="periode_pinjaman" placeholder="Berapa tahun" name="periode_pinjaman" onkeyup="result()">
                             </div>
                         </div>
 
                         <div class="form-row jumlah-kebutuhan-retensi">
-                            <label for="besar_angsuran" class="col-sm-4 col-form-label">Angsuran perbulan</label>
+                            <label for="besar_angsuran" class="col-sm-4 col-form-label">Cicilan perbulan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="besar_angsuran" placeholder="Rp." name="besar_angsuran" onkeyup="SUM_HUTANG()" disabled>
+                            <input type="text" class="form-control" id="besar_angsuran" placeholder="Rp." name="besar_angsuran" onkeyup="result()" disabled>
                             </div>
                         </div>
 
+                        <div class="form-row jumlah-kebutuhan-retensi">
+                            <label for="pembayaran_pokok_bunga" class="col-sm-4 col-form-label">Pembayaran pokok dan bunga</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="pembayaran_pokok_bunga" placeholder="Rp." name="pembayaran_pokok_bunga" onkeyup="result()" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-row jumlah-kebutuhan-retensi">
+                            <label for="total_bunga_kredit" class="col-sm-4 col-form-label">Total bunga kredit</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="total_bunga_kredit" placeholder="Rp." name="total_bunga_kredit" onkeyup="result()" disabled>
+                            </div>
+                        </div>
                         <!-- </div> -->
                     </form>
                     
@@ -299,52 +341,87 @@
     
         <!-- hitungan table -->
         <script>
-            function SUM_HUTANG(){
-                var kpr = document.getElementById("sisa_hutang_kpr").value;
-                var kredit_kendaraan = document.getElementById("sisa_hutang_kredit_kendaraan").value;
-                var kredit_bisnis = document.getElementById("sisa_hutang_kredit_bisnis").value;
-                var hutang_lainnya = document.getElementById("sisa_hutang_lainnya").value;
-                var totalhutang = Number(kpr) + Number(kredit_kendaraan) + Number(kredit_bisnis) + Number(hutang_lainnya);
-                
-                var totalbiaya = document.getElementById("total_biaya").value;
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
 
-                document.getElementById("total_hutang").value=totalhutang;
-
-                var result = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun);
-                var result1 = totalhutang + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
-
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
+            function formatRupiah(angka, prefix){
+                var number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split   		= number_string.split(','),
+                sisa     		= split[0].length % 3,
+                rupiah     		= split[0].substr(0, sisa),
+                ribuan     		= split[0].substr(sisa).match(/\d{3}/gi);
+    
+                // tambahkan titik jika yang di input sudah menjadi angka ribuan
+                if(ribuan){
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                }
+    
+                rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
             }
 
-            function SUM_HARI_ESOK(){
-                var pemakaman = document.getElementById("biaya_pemakaman").value;
-                var medis = document.getElementById("biaya_medis").value;
-                var pajak = document.getElementById("biaya_pajak").value;
-                var totalbiaya = Number(medis) + Number(pajak) + Number(pemakaman);
-                var totalhutang = document.getElementById("total_hutang").value;                
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-
-                document.getElementById("total_biaya").value=totalbiaya;
-
-                var result = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun);
-                var result1 = Number(totalhutang) + totalbiaya + Number(pemasukanpertahun) + Number(pemasukanpertahun);
-
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
+            function convertToNormal(angka) {
+                return Number(angka.replace(" ", "").replaceAll(".", "").replace("Rp", ""))
             }
 
-            function sum_pendekatan_pemasukan(){
-                var totalhutang = document.getElementById("total_hutang").value;
-                var totalbiaya = document.getElementById("total_biaya").value;
-                var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
-                var result = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun);
-                var result1 = Number(totalhutang) + Number(totalbiaya) + Number(pemasukanpertahun) + Number(pemasukanpertahun);
+            function future_value(present_value, i, n) {
+                // i : presentase
+                // n : waktu
+                return present_value * Math.pow(1 + i, n);
+            }
 
-                document.getElementById("asuransi_jiwa_pemasukan").value = result;
-                document.getElementById("asuransi_jiwa_retensi").value = result1;
-            }            
+            function pmt(present, i, n){
+                return (i*present)/(1 - Math.pow(1+i,-n));
+            }
+
+            function result() {
+                var harga_kendaraan = document.getElementById("harga_kendaraan");
+                harga_kendaraan.addEventListener('keyup', function(e){
+                    harga_kendaraan.value = formatRupiah(this.value, 'Rp. ');
+                });
+                var waktu_tunggu = document.getElementById("waktu_tunggu").value;
+                var kenaikan_harga = document.getElementById('kenaikan_harga').value;
+
+                var harga_mendatang = Math.round(future_value(convertToNormal(harga_kendaraan.value), Number(kenaikan_harga)/100, Number(waktu_tunggu)));
+                document.getElementById("harga_mendatang").value = formatRupiah(String(harga_mendatang), "Rp. ");
+
+                var persentase_uang_muka = document.getElementById("persentase_uang_muka").value;
+                var kebutuhan_uang_muka = harga_mendatang*Number(persentase_uang_muka)/100;
+                document.getElementById('kebutuhan_uang_muka').value = formatRupiah(String(kebutuhan_uang_muka), "Rp. ");
+
+                var biaya_admin = document.getElementById('biaya_admin');
+                biaya_admin.addEventListener('keyup', function(e){
+                    biaya_admin.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                var biaya_buruh = document.getElementById('biaya_buruh');
+                biaya_buruh.addEventListener('keyup', function(e){
+                    biaya_buruh.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                var total_dp = kebutuhan_uang_muka + convertToNormal(biaya_admin.value) + convertToNormal(biaya_buruh.value);
+                document.getElementById("total_dp").value = formatRupiah(String(total_dp), "Rp. ");
+
+                var target_investasi = document.getElementById("target_investase").value;
+                var tabungan = total_dp/(Number(waktu_tunggu)*12);
+                document.getElementById("tabungan").value = formatRupiah(String(tabungan), "Rp. ");
+                var investasi_perbulan = Math.round(pmt(total_dp, Number(target_investasi)/12, Number(waktu_tunggu)*12));
+                document.getElementById("investasi_perbulan").value = formatRupiah(String(investasi_perbulan), "Rp. ");
+
+                var nominal_pinjaman = harga_mendatang - kebutuhan_uang_muka;
+                document.getElementById("nominal_pinjaman").value = formatRupiah(String(nominal_pinjaman), "Rp. ");
+
+                var bunga_tahunan = document.getElementById("bunga_tahunan").value;
+                var periode_pinjaman = document.getElementById("periode_pinjaman").value;
+
+                var besar_angsuran = Math.round(pmt(nominal_pinjaman, Number(bunga_tahunan)/1200, Number(periode_pinjaman)*12));
+                document.getElementById('besar_angsuran').value = formatRupiah(String(besar_angsuran), "Rp. ");
+
+                var pembayaran_pokok_bunga = besar_angsuran*(Number(periode_pinjaman)*12);
+                document.getElementById("pembayaran_pokok_bunga").value = formatRupiah(String(pembayaran_pokok_bunga));
+                var total_bunga_kredit = pembayaran_pokok_bunga - nominal_pinjaman;
+                document.getElementById("total_bunga_kredit").value = formatRupiah(String(total_bunga_kredit), "Rp. ");
+
+            }
 
             function filterFunction() {
                 var input, filter, ul, li, a, i;

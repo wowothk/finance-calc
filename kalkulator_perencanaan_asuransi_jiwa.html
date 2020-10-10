@@ -45,10 +45,12 @@
             <nav class="nav-menu d-none d-lg-block">
                 <ul>
                 <li class="active"><a href="https://www.okefinansial.com/">Home</a></li>
-                <li><a href="https://www.okefinansial.com/about">About Us</a></li>
+                <li><a href="https://www.okefinansial.com/about">About</a></li>
+                <li><a href="https://www.okefinansial.com/financial-planning">Financial Planning</a></li>
                 <li class="drop-down"><a href="https://www.okefinansial.com/ofins-services/">Our Services</a>
                     <ul>
-                    <li class="drop-down"><a href="https://www.okefinansial.com/financial-check-up/">Financial Check Up</a>
+                    <li><a href="https://www.okefinansial.com/financial-check-up/">Financial Check Up</a></li>
+                    <li class="drop-down"><a href="#">Kalkulator Financial</a>
                         <ul>
                         <!-- <li><a href="https://www.okefinansial.com/ofins-services/">Our Services</a></li> -->
                         <li><a href="https://kalkulator.okefinansial.com/index.html">Kalkulator Perencanaan Anggaran</a></li>
@@ -187,14 +189,14 @@
                         <div class="form-row">
                             <label for="pemasukan_pertahun" class="col-sm-4 col-form-label">Pemasukan pertahun</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="pemasukan_pertahun" placeholder="Rp." name="pemasukan_pertahun" onkeyup="sum_pendekatan_pemasukan()">
+                                <input type="text" class="form-control" id="pemasukan_pertahun" placeholder="Rp." name="pemasukan_pertahun" onkeyup="SUM_HARI_ESOK()">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <label for="perlindungan_keluarga" class="col-sm-4 col-form-label">Masa perlindungan untuk keluarga</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="perlindungan_keluarga" placeholder="Berapa Tahun" name="perlindungan_keluarga">
+                                <input type="text" class="form-control" id="perlindungan_keluarga" placeholder="Berapa Tahun" name="perlindungan_keluarga" onkeyup="SUM_HARI_ESOK()">
                             </div>
                         </div>
                         
@@ -208,7 +210,7 @@
                         <div class="form-row">
                             <label for="asumsi_investasi" class="col-sm-4 col-form-label">Asumsi pertumbuhan investasi</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="asumsi_investasi" placeholder="Dalam Persen" name="asumsi_investasi" onkeyup="SUM_HARI_ESOK()">
+                                <input type="text" class="form-control" id="asumsi_investasi" placeholder="Dalam Persen" name="asumsi_investasi" onkeyup="sum_pendekatan_pemasukan()">
                             </div>
                         </div>
 
@@ -408,9 +410,9 @@
                 document.getElementById("total_biaya").value = formatRupiah(String(totalbiaya), 'Rp. ');
 
 
-                var result = totalhutang + totalbiaya + (convertToNormal(pajak.value)*Number(perlindungan_keluarga));
+                var result = totalhutang + totalbiaya + (convertToNormal(pemasukanpertahun.value)*Number(perlindungan_keluarga));
                 var result1 = convertToNormal(pemasukanpertahun.value)/(Number(asumsi_investasi)/100);
-                document.getElementById("uang_pertanggungan").value = formatRupiah(String(convertToNormal(pajak.value)*Number(perlindungan_keluarga)), "Rp. ")
+                document.getElementById("uang_pertanggungan").value = formatRupiah(String(convertToNormal(pemasukanpertahun.value)*Number(perlindungan_keluarga)), "Rp. ")
                 document.getElementById("asuransi_jiwa_pemasukan").value = formatRupiah(String(result), 'Rp. ');
                 document.getElementById("asuransi_jiwa_retensi").value = formatRupiah(String(result1), 'Rp. ');;
             }
@@ -420,7 +422,8 @@
                 var totalbiaya = document.getElementById("total_biaya").value;
                 var pemasukanpertahun = document.getElementById("pemasukan_pertahun").value;
                 var asumsi_investasi = document.getElementById("asumsi_investasi").value;
-                var result = convertToNormal(totalhutang) + convertToNormal(totalbiaya) + convertToNormal(pemasukanpertahun);
+                var uang_pertanggungan = document.getElementById("uang_pertanggungan").value;
+                var result = convertToNormal(totalhutang) + convertToNormal(totalbiaya) + convertToNormal(uang_pertanggungan);
                 var result1 = convertToNormal(pemasukanpertahun)/(Number(asumsi_investasi)/100);
 
                 document.getElementById("asuransi_jiwa_pemasukan").value = formatRupiah(String(result), 'Rp. ');;

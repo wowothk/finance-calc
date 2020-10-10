@@ -92,7 +92,7 @@
                         Memiliki rumah pribadi merupakan impian semua orang. namun untuk mewujudkan impiannnya memiliki rumah sendiri seringkali terhenti karena harga rumah yang semakin lama semakin mahal.
                     </p>
                     <p>
-                        Survei yang di lakukan oleh Rumah123 bekerjasam dengan karir.com pada tahun 2016, generasi milenial lima tahun lagi terancam tidak mampu beli rumah, fakta tersebut harus membuat kamu lebih optimis dan tertantang bahwa kamu tetap bisa membeli rumah walaupun dengan cara KPR kredit kepemilikan rumah.
+                        Survei yang di lakukan oleh Rumah123 bekerja sama dengan karir.com pada tahun 2016, generasi milenial lima tahun lagi terancam tidak mampu beli rumah, fakta tersebut harus membuat kamu lebih optimis dan tertantang bahwa kamu tetap bisa membeli rumah walaupun dengan cara KPR kredit kepemilikan rumah.
                     </p>
                     <p>Rumah merupakan aset personal yang perlu kamu miliki untuk
                     membangun sebuah keluarga, berlindung dari terik matahari dan hujan.</p>
@@ -133,88 +133,137 @@
                         <div class="form-row">
                             <label for="harga_rumah" class="col-sm-4 col-form-label">Harga rumah saat ini</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="harga_rumah" placeholder="Rp." name="harga_rumah" onkeyup="harga_setelah_kenaikan()">
+                            <input type="text" class="form-control" id="harga_rumah" placeholder="Rp." name="harga_rumah" onkeyup="result_table()">
                             </div>
                         </div>                        
                         <div class="form-row">
-                            <label for="waktu_tunggu" class="col-sm-4 col-form-label">Berapa lama lagi Anda akan beli rumah</label>
+                            <label for="waktu_tunggu" class="col-sm-4 col-form-label">Jangka waktu beli rumah</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="waktu_tunggu" placeholder="Berapa tahun" name="waktu_tunggu" onkeyup="harga_setelah_kenaikan()">
+                            <input type="text" class="form-control" id="waktu_tunggu" placeholder="Berapa tahun" name="waktu_tunggu" onkeyup="result_table()">
                             </div>
                         </div>                        
                         <div class="form-row">
                             <label for="kenaikan_harga" class="col-sm-4 col-form-label">Kenaikan harga rumah</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="kenaikan_harga" placeholder="Dalam persen" name="kenaikan_harga" onkeyup="harga_setelah_kenaikan()">
+                            <input type="text" class="form-control" id="kenaikan_harga" placeholder="Dalam persen" name="kenaikan_harga" onkeyup="result_table()">
                             </div>
                         </div>
                         <div class="form-row jumlah-kebutuhan-pemasukan">
                             <label for="harga_terbaru" class="col-sm-4 col-form-label">Harga rumah setelah kenaikan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="harga_terbaru" placeholder="Rp." name="harga_terbaru" onkeyup="harga_setelah_kenaikan()" disabled>
+                            <input type="text" class="form-control" id="harga_terbaru" placeholder="Rp." name="harga_terbaru" onkeyup="result_table()" disabled>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <label for="persentase_dp" class="col-sm-4 col-form-label">Persentase uang muka DP</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="persentase_dp" placeholder="Dalam persen" name="persentase_dp" onkeyup="persiapan_uang_muka()">
+                            <input type="text" class="form-control" id="persentase_dp" placeholder="Dalam persen" name="persentase_dp" onkeyup="result_table()">
                             </div>
                         </div>
 
                         <div class="form-row jumlah-kebutuhan-pemasukan">
                             <label for="uang_muka" class="col-sm-4 col-form-label">Uang muka yang harus disiapkan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="uang_muka" placeholder="Rp." name="uang_muka" onkeyup="" disabled>
+                            <input type="text" class="form-control" id="uang_muka" placeholder="Rp." name="uang_muka" onkeyup="result_table()" disabled>
                             </div>
                         </div>
                         
+                        <div class="form-row">
+                            <label for="biaya_notaris" class="col-sm-4 col-form-label">Biaya notaris</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="biaya_notaris" placeholder="Rp." name="biaya_notaris" onkeyup="result_table()">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="biaya_admin" class="col-sm-4 col-form-label">Biaya administrasi KPR</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="biaya_admin" placeholder="Rp." name="biaya_admin" onkeyup="result_table()">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="biaya_ppn" class="col-sm-4 col-form-label">Biaya balik nama dan PPN (pajak)</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="biaya_ppn" placeholder="Rp." name="biaya_ppn" onkeyup="result_table()">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="biaya_asuransi" class="col-sm-4 col-form-label">Biaya asuransi KPR</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="biaya_asuransi" placeholder="Rp." name="biaya_asuransi" onkeyup="result_table()">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="total_uang_muka" class="col-sm-4 col-form-label">Total uang muka</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="total_uang_muka" placeholder="Rp." name="total_uang_muka" onkeyup="result_table()" disabled>
+                            </div>
+                        </div>
+
                         <div class="form-row">
                             <label for="target_investasi_pertahun" class="col-sm-4 col-form-label">Target investasi pertahun</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="target_investasi_pertahun" placeholder="Dalam persen" name="target_investasi_pertahun" onkeyup="">
+                            <input type="text" class="form-control" id="target_investasi_pertahun" placeholder="Dalam persen" name="target_investasi_pertahun" onkeyup="result_table()">
                             </div>
                         </div>
                         
                         <div class="form-row">
-                            <label for="tabungan_pertahun" class="col-sm-4 col-form-label">Tabungan uang muka rumah pertahun</label>
+                            <label for="tabungan_pertahun" class="col-sm-4 col-form-label">Menabung di bank</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tabungan_pertahun" placeholder="Rp." name="tabungan_pertahun" onkeyup="" disabled>
+                            <input type="text" class="form-control" id="tabungan_pertahun" placeholder="Rp." name="tabungan_pertahun" onkeyup="result_table()" disabled>
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <label for="tabungan_perbulan" class="col-sm-4 col-form-label">Tabungan uang muka rumah perbulan</label>
+                            <label for="investasi_bulanan" class="col-sm-4 col-form-label">Investasi bulanan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tabungan_perbulan" placeholder="Rp." name="tabungan_perbulan" onkeyup="" disabled>
+                            <input type="text" class="form-control" id="investasi_bulanan" placeholder="Rp." name="investasi_bulanan" onkeyup="result_table()" disabled>
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <label for="nominasi_kpr" class="col-sm-4 col-form-label">Nominal KPR</label>
+                            <label for="nominal_kpr" class="col-sm-4 col-form-label">Nominal KPR</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="nominasi_kpr" placeholder="Rp." name="nominasi_kpr" onkeyup="">
+                            <input type="text" class="form-control" id="nominal_kpr" placeholder="Rp." name="nominal_kpr" onkeyup="result_table()" disabled>
                             </div>
                         </div>  
 
                         <div class="form-row">
                             <label for="bunga_kpr" class="col-sm-4 col-form-label">Bunga KPR</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="bunga_kpr" placeholder="Dalam persen" name="bunga_kpr" onkeyup="">
+                            <input type="text" class="form-control" id="bunga_kpr" placeholder="Dalam persen" name="bunga_kpr" onkeyup="result_table()">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <label for="jangka_pinjaman" class="col-sm-4 col-form-label">Jangka Pinjaman</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="jangka_pinjaman" placeholder="Berapa tahun" name="jangka_pinjaman" onkeyup="">
+                            <input type="text" class="form-control" id="jangka_pinjaman" placeholder="Berapa tahun" name="jangka_pinjaman" onkeyup="result_table()">
                             </div>
                         </div>
 
                         <div class="form-row jumlah-kebutuhan-retensi">
                             <label for="angsuran_perbulan" class="col-sm-4 col-form-label">Angsuran KPR perbulan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="angsuran_perbulan" placeholder="Rp." name="angsuran_perbulan" onkeyup="" disabled>
+                            <input type="text" class="form-control" id="angsuran_perbulan" placeholder="Rp." name="angsuran_perbulan" onkeyup="result_table()" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-row jumlah-kebutuhan-retensi">
+                            <label for="pembayaran_bunga" class="col-sm-4 col-form-label">Pembayaran pokok dan bunga</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="pembayaran_bunga" placeholder="Rp." name="pembayaran_bunga" onkeyup="result_table()" disabled>
+                            </div>
+                        </div>
+
+                        <div class="form-row jumlah-kebutuhan-retensi">
+                            <label for="total_bunga_kredit" class="col-sm-4 col-form-label">Total bunga kredit</label>
+                            <div class="col-sm-8">
+                            <input type="text" class="form-control" id="total_bunga_kredit" placeholder="Rp." name="total_bunga_kredit" onkeyup="result_table()" disabled>
                             </div>
                         </div>
 
@@ -333,31 +382,73 @@
             }
 
             function future_value(present_value, i, n) {
+                // i : presentase
+                // n : waktu
                 return present_value * Math.pow(1 + i, n);
             }
 
-            function harga_setelah_kenaikan() {
+            function pmt(present, i, n){
+                return (i*present)/(1 - Math.pow(1+i,-n));
+            }
+
+            function result_table() {
                 var harga_rumah_saat_ini = document.getElementById("harga_rumah");
                 harga_rumah_saat_ini.addEventListener('keyup', function(e){
                     harga_rumah_saat_ini.value = formatRupiah(this.value, 'Rp. ');
                 });
                 var waktu_tunggu = document.getElementById("waktu_tunggu").value;
                 var kenaikan_harga = document.getElementById("kenaikan_harga").value;
-                document.getElementById("harga_terbaru").value = future_value(convertToNormal(harga_rumah_saat_ini), Number(kenaikan_harga), Number(waktu_tunggu));
-            }
+                var harga_terbaru = Math.round(future_value(convertToNormal(harga_rumah_saat_ini.value), Number(kenaikan_harga)/100, Number(waktu_tunggu)));
+                document.getElementById("harga_terbaru").value = formatRupiah(String(harga_terbaru), "Rp. ");
 
-            function persiapan_uang_muka() {
-                var harga_terbaru = document.getElementById("harga_terbaru").value;
                 var persentase_dp = document.getElementById("persentase_dp").value;
-                document.getElementById("uang_muka").value = convertToNormal(harga_terbaru)*Number(persentase_dp)/100;
-            }
+                var uang_muka = harga_terbaru*Number(persentase_dp)/100;
+                document.getElementById("uang_muka").value = formatRupiah(String(uang_muka), "Rp. ");
 
-            function uang_muka_pertahun_perbulan() {
-                var uang_muka = document.getElementById("uang_muka").value;
-                var waktu_tunggu = document.getElementById("waktu_tunggu").value;
-                document.getElementById("target_investasi_pertahun").value = convertToNormal(uang_muka)*Number(waktu_tunggu);
-                // document.getElementById("tabungan_perbulan").value =
-            }
+                var biaya_notaris = document.getElementById("biaya_notaris");
+                biaya_notaris.addEventListener('keyup', function(e){
+                    biaya_notaris.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                var biaya_admin = document.getElementById("biaya_admin");
+                biaya_admin.addEventListener('keyup', function(e){
+                    biaya_admin.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                var biaya_ppn = document.getElementById("biaya_ppn");
+                biaya_ppn.addEventListener('keyup', function(e){
+                    biaya_ppn.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                var biaya_asuransi = document.getElementById("biaya_asuransi");
+                biaya_asuransi.addEventListener('keyup', function(e){
+                    biaya_asuransi.value = formatRupiah(this.value, 'Rp. ');
+                });
+
+                var total_uang_muka = uang_muka + convertToNormal(biaya_notaris.value) + convertToNormal(biaya_admin.value) + convertToNormal(biaya_ppn.value) + convertToNormal(biaya_asuransi.value);
+                document.getElementById("total_uang_muka").value = formatRupiah(String(total_uang_muka), "Rp. ");
+
+                var target_investasi_pertahun = document.getElementById("target_investasi_pertahun").value;
+
+                var tabungan_pertahun = total_uang_muka/(Number(waktu_tunggu)*12);
+                document.getElementById("tabungan_pertahun").value = formatRupiah(String(tabungan_pertahun), "Rp. ");
+                
+                var investasi_bulanan = Math.round(pmt(total_uang_muka, Number(target_investasi_pertahun)/1200, Number(waktu_tunggu)*12));
+                document.getElementById("investasi_bulanan").value = formatRupiah(String(investasi_bulanan), "Rp. ");
+                
+                var nominal_kpr = harga_terbaru - uang_muka;
+                document.getElementById("nominal_kpr").value = formatRupiah(String(nominal_kpr), "Rp. ");
+
+                var bunga_kpr = document.getElementById("bunga_kpr").value;
+                var jangka_pinjaman = document.getElementById("jangka_pinjaman").value;
+
+                var cicilan_perbulan = Math.round(pmt(nominal_kpr, Number(bunga_kpr)/1200, Number(jangka_pinjaman)*12));
+                document.getElementById("angsuran_perbulan").value = formatRupiah(String(cicilan_perbulan), "Rp. ");
+                var pembayaran_bunga = cicilan_perbulan*(Number(jangka_pinjaman)*12);
+                document.getElementById("pembayaran_bunga").value = formatRupiah(String(pembayaran_bunga), "Rp. ");
+                var total_bunga_kredit = pembayaran_bunga  - nominal_kpr;
+                document.getElementById("total_bunga_kredit").value = formatRupiah(String(total_bunga_kredit), "Rp. ");
+            }   
 
             function filterFunction() {
                 var input, filter, ul, li, a, i;

@@ -35,6 +35,15 @@
         ======================================================== -->
     </head>
     <body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.23.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.23.0/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
         <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center">
@@ -48,12 +57,13 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="https://www.okefinansial.com/">Home</a></li>
-          <li><a href="https://www.okefinansial.com/about">About Us</a></li>
+          <li><a href="https://www.okefinansial.com/about">About</a></li>
+          <li><a href="https://www.okefinansial.com/financial-planning">Financial Planning</a></li>
           <li class="drop-down"><a href="https://www.okefinansial.com/ofins-services/">Our Services</a>
             <ul>
-                <li class="drop-down"><a href="https://www.okefinansial.com/financial-check-up/">Financial Check Up</a>
+                <li><a href="https://www.okefinansial.com/financial-check-up/">Financial Check Up</a>
+                <li class="drop-down"><a href="#">Kalkulator Financial</a>
                     <ul>
-                    <!-- <li><a href="https://www.okefinansial.com/ofins-services/">Our Services</a></li> -->
                     <li><a href="https://kalkulator.okefinansial.com/index.html">Kalkulator Perencanaan Anggaran</a></li>
                     <li><a href="https://kalkulator.okefinansial.com/kalkulator_perencanaan_asuransi_jiwa.html">Kalkulator Perencanaan Asuransi Jiwa </a></li>
                     <li><a href="https://kalkulator.okefinansial.com/kalkulator_dana_darurat.html/">Kalkulator Dana Darurat</a></li>
@@ -117,7 +127,7 @@
                         </div>
                     </div>
                     <br><br>
-                    <h4><strong>Persentase Anggaran Ideal</strong></h4>
+                    <h4 style="text-align: center;"><strong>Persentase Anggaran Ideal</strong></h4>
                     <canvas id="labelChart"></canvas>                    
                 </div>
                 
@@ -348,7 +358,7 @@
                         labels: ["Hutang produktif", "Hutang konsumtif", "Asuransi", "Tabungan", "Biaya kebutuhan", "Biaya gaya hidup atau hobi"],
                         datasets: [{
                         data: [hutang_produktif, hutang_konsumtif, asuransi, tabungan_investasi, biaya_kebutuhan, biaya_gaya_hidup],
-                        backgroundColor: ["#00b8ff", "#475cff", "#2247ff", "#001eff", "#6700bf", "#c299e5"]
+                        backgroundColor: ["#00A2FF", "#60D736", "#828286", "#EDB81F", "#FF2600", "#CE1A76"]
                         // hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
                         }]
                     },
