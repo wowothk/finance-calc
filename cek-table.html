@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Responsive Table</h2>
+  <p>The .table-responsive class adds a scrollbar to the table when needed:</p>                                                                                      
+  
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Jenjang Pendidikan</th>
+          <th>Perkiraan biaya sekali (uang pangkal, spp, dll)</th>
+          <th>Waktu persiapan</th>
+          <th>Biaya mendatang</th>
+          <th>Investasi bulanan</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>TK</td>
+          <td><input type="text" id="biaya_tk" placeholder="Rp." name="biaya_tk" onkeyup=""></td>
+          <td><input type="text" id="waktu_persiapan_tk" placeholder="Berapa tahun lagi" name="waktu_persiapan_tk" onkeyup=""></td>
+          <td><input type="text" id="biaya_mendatang_tk" placeholder="Rp." name="biaya_mendatang_tk" onkeyup=""></td>
+          <td><input type="text" id="investasi_bulanan_tk" placeholder="Rp." name="investasi_bulanan_tk" onkeyup=""></td>
+        </tr>
+        <tr>
+            <td>SD</td>
+            <td><input type="text" id="biaya_sd" placeholder="Rp." name="biaya_sd" onkeyup=""></td>
+            <td><input type="text" id="waktu_persiapan_sd" placeholder="Berapa tahun lagi" name="waktu_persiapan_sd" onkeyup=""></td>
+            <td><input type="text" id="biaya_mendatang_sd" placeholder="Rp." name="biaya_mendatang_sd" onkeyup="" disabled></td>
+            <td><input type="text" id="investasi_bulanan_sd" placeholder="Rp." name="investasi_bulanan_sd" onkeyup="" disabled></td>
+        </tr>
+        <tr>
+            <td>SMP</td>
+            <td><input type="text" id="biaya_smp" placeholder="Rp." name="biaya_sd" onkeyup=""></td>
+            <td><input type="text" id="waktu_persiapan_smp" placeholder="Berapa tahun lagi" name="waktu_persiapan_sd" onkeyup=""></td>
+            <td><input type="text" id="biaya_mendatang_smp" placeholder="Rp." name="biaya_mendatang_sd" onkeyup="" disabled></td>
+            <td><input type="text" id="investasi_bulanan_smp" placeholder="Rp." name="investasi_bulanan_sd" onkeyup="" disabled></td>
+        </tr>
+        <tr>
+            <td>SMA</td>
+            <td><input type="text" id="biaya_sma" placeholder="Rp." name="biaya_sma" onkeyup=""></td>
+            <td><input type="text" id="waktu_persiapan_sma" placeholder="Berapa tahun lagi" name="waktu_persiapan_sma" onkeyup=""></td>
+            <td><input type="text" id="biaya_mendatang_sma" placeholder="Rp." name="biaya_mendatang_sma" onkeyup="" disabled></td>
+            <td><input type="text" id="investasi_bulanan_sma" placeholder="Rp." name="investasi_bulanan_sma" onkeyup="" disabled></td>
+        </tr>
+        <tr>
+            <td>S1</td>
+            <td><input type="text" id="biaya_s1" placeholder="Rp." name="biaya_s1" onkeyup=""></td>
+            <td><input type="text" id="waktu_persiapan_s1" placeholder="Berapa tahun lagi" name="waktu_persiapan_s1" onkeyup=""></td>
+            <td><input type="text" id="biaya_mendatang_s1" placeholder="Rp." name="biaya_mendatang_s1" onkeyup="" disabled></td>
+            <td><input type="text" id="investasi_bulanan_s1" placeholder="Rp." name="investasi_bulanan_s1" onkeyup="" disabled></td>
+        </tr>
+        <tr>
+            <td>S2</td>
+            <td><input type="text" id="biaya_s2" placeholder="Rp." name="biaya_s2" onkeyup=""></td>
+            <td><input type="text" id="waktu_persiapan_s2" placeholder="Berapa tahun lagi" name="waktu_persiapan_s2" onkeyup=""></td>
+            <td><input type="text" id="biaya_mendatang_s2" placeholder="Rp." name="biaya_mendatang_s2" onkeyup="" disabled></td>
+            <td><input type="text" id="investasi_bulanan_s2" placeholder="Rp." name="investasi_bulanan_s2" onkeyup="" disabled></td>
+        </tr>
+        <tr>
+            <td>S3</td>
+            <td><input type="text" id="biaya_s3" placeholder="Rp." name="biaya_s3" onkeyup=""></td>
+            <td><input type="text" id="waktu_persiapan_s3" placeholder="Berapa tahun lagi" name="waktu_persiapan_s3" onkeyup=""></td>
+            <td><input type="text" id="biaya_mendatang_s3" placeholder="Rp." name="biaya_mendatang_s3" onkeyup="" disabled></td>
+            <td><input type="text" id="investasi_bulanan_s3" placeholder="Rp." name="investasi_bulanan_s3" onkeyup="" disabled></td>
+        </tr>
+        <tr>
+            <td colspan="4">Total dana pendidikan sekarang</td>
+            <td><input type="text" id="total_dana_sekarang" placeholder="Rp." name="total_dana_sekarang" onkeyup="" disabled></td>
+        </tr>
+        <tr>
+            <td colspan="4">Total dana pendidikan masa depan</td>
+            <td><input type="text" id="total_dana_masadepan" placeholder="Rp." name="total_dana_masadepan" onkeyup="" disabled></td>
+        </tr>
+        <tr>
+            <td colspan="4">Total investasi perbulan</td>
+            <td><input type="text" id="total_investasi_perbulan" placeholder="Rp." name="total_investasi_perbulan" onkeyup="" disabled></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+</div>
+
+</body>
+</html>
