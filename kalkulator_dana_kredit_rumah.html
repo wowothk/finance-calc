@@ -91,31 +91,18 @@
               <div class="row">
                 <div class="col-lg-6 pt-4 pt-lg-0">
                     <h3>Kalkulator Kredit Pembelian Rumah</h3>
-                    <p>
+                    <p style="text-indent: 25px; text-align: justify;">
                         Memiliki rumah pribadi merupakan impian semua orang. namun untuk mewujudkan impiannnya memiliki rumah sendiri seringkali terhenti karena harga rumah yang semakin lama semakin mahal.
                     </p>
-                    <p>
+                    <p style="text-indent: 25px; text-align: justify;">
                         Survei yang di lakukan oleh Rumah123 bekerja sama dengan karir.com pada tahun 2016, generasi milenial lima tahun lagi terancam tidak mampu beli rumah, fakta tersebut harus membuat kamu lebih optimis dan tertantang bahwa kamu tetap bisa membeli rumah walaupun dengan cara KPR kredit kepemilikan rumah.
                     </p>
-                    <p>Rumah merupakan aset personal yang perlu kamu miliki untuk
+                    <p style="text-indent: 25px; text-align: justify;">
+                    Rumah merupakan aset personal yang perlu kamu miliki untuk
                     membangun sebuah keluarga, berlindung dari terik matahari dan hujan.</p>
-                    <p>
+                    <p style="text-indent: 25px; text-align: justify;">
                         Yuk gunakan calculator persiapan DP rumah dan cicilan perbulanya, agar kamu bisa langkah-langkah perencaan Keuangan yang tepat dan bekerja dengan penuh semangat.
                     </p>
-                    <div class="dropdown">
-                        <button onclick="myFunction()" class="dropbtn">Pilih Kalkulator</button>
-                        <div id="myDropdown" class="dropdown-content">
-                          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-                          <a href="index.html">Kalkulator Perencanaan Anggaran</a>
-                          <a href="kalkulator_perencanaan_asuransi_jiwa.html">Kalkulator Perencanaan Asuransi Jiwa </a>
-                          <a href="kalkulator_dana_darurat.html">Kalkulator Dana Darurat</a>
-                          <a href="kalkulator_dana_kredit_rumah.html">Kalkulator Kredit Pembelian Rumah</a>
-                          <a href="kalkulator_dana_kredit_kendaraan.html">Kalkulator Kredit Pembelian Kendaraan</a>
-                          <a href="kalkulator_dana_pensiun.html">Kalkulator Perencanaan Dana Pensiun</a>                          
-                          <a href="kalkulator_dana_pendidikan.html">Kalkulator Dana Pendidikan</a>
-                          <a href="kalkulator_dana_impian.html">Kalkulator Apa Mimpimu</a>
-                        </div>
-                    </div>
                     <br><br>
                 </div>
                 
@@ -277,7 +264,25 @@
                     
                 </div>
               </div>
-              
+              <br><br>
+              <p>Tersedia juga berbagai Kalkulator finansial lainnya yang sesuai dengan kebutuhan kamu dan temukan simulasi yang tepat untuk perencanaan keuangan kamu.</p>
+              <div class="col-lg-6">
+                <br>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Pilih Kalkulator</button>
+                    <div id="myDropdown" class="dropdown-content">
+                      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                      <a href="index.html">Kalkulator Perencanaan Anggaran</a>
+                      <a href="kalkulator_perencanaan_asuransi_jiwa.html">Kalkulator Perencanaan Asuransi Jiwa </a>
+                      <a href="kalkulator_dana_darurat.html">Kalkulator Dana Darurat</a>
+                      <a href="kalkulator_dana_kredit_rumah.html">Kalkulator Kredit Pembelian Rumah</a>
+                      <a href="kalkulator_dana_kredit_kendaraan.html">Kalkulator Kredit Pembelian Kendaraan</a>
+                      <a href="kalkulator_dana_pensiun.html">Kalkulator Perencanaan Dana Pensiun</a>                          
+                      <a href="kalkulator_dana_pendidikan.html">Kalkulator Dana Pendidikan</a>
+                      <a href="kalkulator_dana_impian.html">Kalkulator Apa Mimpimu</a>
+                    </div>
+                </div>
+              </div>
             </div>
           </section><!-- End perencanaan_anggaran Section -->
       
@@ -385,14 +390,44 @@
                 return Number(angka.replace(" ", "").replaceAll(".", "").replace("Rp", ""))
             }
 
-            function future_value(present_value, i, n) {
-                // i : presentase
-                // n : waktu
-                return present_value * Math.pow(1 + i, n);
+            // function future_value(present_value, i, n) {
+            //     // i : presentase
+            //     // n : waktu
+            //     return present_value * Math.pow(1 + i, n);
+            // }
+
+            // function pmt(present, i, n){
+            //     return (i*present)/(1 - Math.pow(1+i,-n));
+            // }
+
+            function future_value(rate, nper, pmt, pv, type) {
+                var pow = Math.pow(1 + rate, nper),
+                    fv;
+
+                pv = pv || 0;
+                type = type || 0;
+
+                if (rate) {
+                    fv = (pmt*(1+rate*type)*(1-pow)/rate)-pv*pow;
+                } else {
+                    fv = -1 * (pv + pmt * nper);
+                }
+                return fv;
             }
 
-            function pmt(present, i, n){
-                return (i*present)/(1 - Math.pow(1+i,-n));
+            function pmt(rate_per_period, number_of_payments, present_value, future_value, type){
+                // default type = 0
+                if(rate_per_period != 0.0){
+                    // Interest rate exists
+                    var q = Math.pow(1 + rate_per_period, number_of_payments);
+                    return -(rate_per_period * (future_value + (q * present_value))) / ((-1 + q) * (1 + rate_per_period * (type)));
+
+                } else if(number_of_payments != 0.0){
+                    // No interest rate, but number of payments exists
+                    return -(future_value + present_value) / number_of_payments;
+                }
+
+                return 0;
             }
 
             function result_table() {
@@ -402,7 +437,8 @@
                 });
                 var waktu_tunggu = document.getElementById("waktu_tunggu").value;
                 var kenaikan_harga = document.getElementById("kenaikan_harga").value;
-                var harga_terbaru = Math.round(future_value(convertToNormal(harga_rumah_saat_ini.value), Number(kenaikan_harga)/100, Number(waktu_tunggu)));
+                // var harga_terbaru = Math.round(future_value(convertToNormal(harga_rumah_saat_ini.value), Number(kenaikan_harga)/100, Number(waktu_tunggu)));
+                var harga_terbaru = Math.round(future_value(Number(kenaikan_harga)/100, Number(waktu_tunggu), 1, -convertToNormal(harga_rumah_saat_ini.value)));
                 document.getElementById("harga_terbaru").value = formatRupiah(String(harga_terbaru), "Rp. ");
 
                 var persentase_dp = document.getElementById("persentase_dp").value;
@@ -434,10 +470,10 @@
 
                 var target_investasi_pertahun = document.getElementById("target_investasi_pertahun").value;
 
-                var tabungan_pertahun = total_uang_muka/(Number(waktu_tunggu)*12);
+                var tabungan_pertahun = Math.round(total_uang_muka/(Number(waktu_tunggu)*12));
                 document.getElementById("tabungan_pertahun").value = formatRupiah(String(tabungan_pertahun), "Rp. ");
                 
-                var investasi_bulanan = Math.round(pmt(total_uang_muka, Number(target_investasi_pertahun)/1200, Number(waktu_tunggu)*12));
+                var investasi_bulanan = Math.round(pmt(Number(target_investasi_pertahun)/1200, Number(waktu_tunggu)*12, 0, -total_uang_muka, 0));
                 document.getElementById("investasi_bulanan").value = formatRupiah(String(investasi_bulanan), "Rp. ");
                 
                 var nominal_kpr = harga_terbaru - uang_muka;
@@ -446,12 +482,12 @@
                 var bunga_kpr = document.getElementById("bunga_kpr").value;
                 var jangka_pinjaman = document.getElementById("jangka_pinjaman").value;
 
-                var cicilan_perbulan = Math.round(pmt(nominal_kpr, Number(bunga_kpr)/1200, Number(jangka_pinjaman)*12));
-                document.getElementById("angsuran_perbulan").value = formatRupiah(String(cicilan_perbulan), "Rp. ");
+                var cicilan_perbulan = pmt(Number(bunga_kpr)/1200, Number(jangka_pinjaman)*12, 0, -nominal_kpr, 0);
+                document.getElementById("angsuran_perbulan").value = formatRupiah(String(Math.round(cicilan_perbulan)), "Rp. ");
                 var pembayaran_bunga = cicilan_perbulan*(Number(jangka_pinjaman)*12);
-                document.getElementById("pembayaran_bunga").value = formatRupiah(String(pembayaran_bunga), "Rp. ");
+                document.getElementById("pembayaran_bunga").value = formatRupiah(String(Math.round(pembayaran_bunga)), "Rp. ");
                 var total_bunga_kredit = pembayaran_bunga  - nominal_kpr;
-                document.getElementById("total_bunga_kredit").value = formatRupiah(String(total_bunga_kredit), "Rp. ");
+                document.getElementById("total_bunga_kredit").value = formatRupiah(String(Math.round(total_bunga_kredit)), "Rp. ");
             }   
 
             function filterFunction() {

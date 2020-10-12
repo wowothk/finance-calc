@@ -91,12 +91,26 @@
               <div class="row">
                 <div class="col-lg-6 pt-4 pt-lg-0">
                     <h3>Kalkulator Apa Mimpimu?</h3>
-                    <p style="text-indent: 25px; text-align: justify;">
+                    <p>
                         Kamu pasti memliki impian tersendiri yang ingin diwujudkan dalam hidupn seperti menikah, liburan renovasi rumah dll untuk mewujudkanya perlu perencanaan keungan yang tepat dan Menghitung kebutuhan dana impian tersebut.
                     </p>
-                    <p style="text-indent: 25px; text-align: justify;">
+                    <p>
                         Yuk hitung mimpimu dan buat langkahh yang tepat untuk mewujudkanya.
                     </p>
+                    <div class="dropdown">
+                        <button onclick="myFunction()" class="dropbtn">Pilih Kalkulator</button>
+                        <div id="myDropdown" class="dropdown-content">
+                          <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+                          <a href="index.html">Kalkulator Perencanaan Anggaran</a>
+                          <a href="kalkulator_perencanaan_asuransi_jiwa.html">Kalkulator Perencanaan Asuransi Jiwa </a>
+                          <a href="kalkulator_dana_darurat.html">Kalkulator Dana Darurat</a>
+                          <a href="kalkulator_dana_kredit_rumah.html">Kalkulator Kredit Pembelian Rumah</a>
+                          <a href="kalkulator_dana_kredit_kendaraan.html">Kalkulator Kredit Pembelian Kendaraan</a>
+                          <a href="kalkulator_dana_pensiun.html">Kalkulator Perencanaan Dana Pensiun</a>                          
+                          <a href="kalkulator_dana_pendidikan.html">Kalkulator Dana Pendidikan</a>
+                          <a href="kalkulator_dana_impian.html">Kalkulator Apa Mimpimu</a>
+                        </div>
+                    </div>
                     <br><br>
                 </div>
                 
@@ -118,49 +132,49 @@
                         <div class="form-row">
                             <label for="biaya_saat_ini" class="col-sm-4 col-form-label">Biaya mewujudkan mimpi saat ini</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="biaya_saat_ini" placeholder="Rp." name="biaya_saat_ini" onkeyup="yourDream()">
+                            <input type="text" class="form-control" id="biaya_saat_ini" placeholder="Rp." name="biaya_saat_ini" >
                             </div>
                         </div>    
                                             
                         <div class="form-row">
                             <label for="tahun_dicapai" class="col-sm-4 col-form-label">Jangka waktu pencapaian</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tahun_dicapai" placeholder="masukkan Tahun" name="tahun_dicapai" onkeyup="yourDream()">
+                            <input type="text" class="form-control" id="tahun_dicapai" placeholder="masukkan Tahun" name="tahun_dicapai" >
                             </div>
                         </div>
 
                         <div class="form-row">
                             <label for="asumsi_inflasi" class="col-sm-4 col-form-label">Tingkat inflasi per tahun</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="asumsi_inflasi" placeholder="Dalam persen" name="asumsi_inflasi" onkeyup="yourDream()">
+                            <input type="text" class="form-control" id="asumsi_inflasi" placeholder="Dalam persen" name="asumsi_inflasi" >
                             </div>
                         </div>    
 
                         <div class="form-row">
                             <label for="harga_setelah_kenaikan" class="col-sm-4 col-form-label">Harga setelah kenaikan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="harga_setelah_kenaikan" placeholder="Rp." name="harga_setelah_kenaikan" onkeyup="yourDream()" disabled>
+                            <input type="text" class="form-control" id="harga_setelah_kenaikan" placeholder="Rp." name="harga_setelah_kenaikan"  disabled>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <label for="target_investasi" class="col-sm-4 col-form-label">Target investasi pertahun</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="target_investasi" placeholder="Dalam persen" name="target_investasi" onkeyup="yourDream()">
+                            <input type="text" class="form-control" id="target_investasi" placeholder="Dalam persen" name="target_investasi" >
                             </div>
                         </div>
 
                       <div class="form-row">
                             <label for="tabungan" class="col-sm-4 col-form-label">Menabung di bank</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tabungan" placeholder="Rp." name="tabugnan" disabled onkeyup="yourDream()">
+                            <input type="text" class="form-control" id="tabungan" placeholder="Rp." name="tabugnan" disabled >
                             </div>
                         </div>
 
                         <div class="form-row">
                             <label for="jumlah_investasi" class="col-sm-4 col-form-label">Jumlah investasi perbulan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="jumlah_investasi" placeholder="Rp." name="jumlah_investasi" onkeyup="yourDream()" disabled>
+                            <input type="text" class="form-control" id="jumlah_investasi" placeholder="Rp." name="jumlah_investasi"  disabled>
                             </div>
                         </div>
                         <!-- </div> -->
@@ -168,26 +182,7 @@
                     
                 </div>
               </div>
-              <br><br>
-              <p>Tersedia juga berbagai Kalkulator finansial lainnya yang sesuai dengan kebutuhan kamu dan temukan simulasi yang tepat untuk perencanaan keuangan kamu.</p>
-              <div class="col-lg-6">
-                <br>
-                <div class="dropdown">
-                    <button onclick="myFunction()" class="dropbtn">Pilih Kalkulator</button>
-                    <div id="myDropdown" class="dropdown-content">
-                      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
-                      <a href="index.html">Kalkulator Perencanaan Anggaran</a>
-                      <a href="kalkulator_perencanaan_asuransi_jiwa.html">Kalkulator Perencanaan Asuransi Jiwa </a>
-                      <a href="kalkulator_dana_darurat.html">Kalkulator Dana Darurat</a>
-                      <a href="kalkulator_dana_kredit_rumah.html">Kalkulator Kredit Pembelian Rumah</a>
-                      <a href="kalkulator_dana_kredit_kendaraan.html">Kalkulator Kredit Pembelian Kendaraan</a>
-                      <a href="kalkulator_dana_pensiun.html">Kalkulator Perencanaan Dana Pensiun</a>                          
-                      <a href="kalkulator_dana_pendidikan.html">Kalkulator Dana Pendidikan</a>
-                      <a href="kalkulator_dana_impian.html">Kalkulator Apa Mimpimu</a>
-                    </div>
-                </div>
-
-              </div>
+              
             </div>
           </section><!-- End perencanaan_anggaran Section -->
       
@@ -273,7 +268,7 @@
         <script src="assets/js/main.js"></script>
     
         <!-- hitungan table -->
-        <script>
+        <script type="text/javascript">
             function formatRupiah(angka, prefix){
                 var number_string = angka.replace(/[^,\d]/g, '').toString(),
                 split   		= number_string.split(','),
@@ -295,69 +290,43 @@
                 return Number(angka.replace(" ", "").replaceAll(".", "").replace("Rp", ""))
             }
 
-            // function future_value(present_value, i, n) {
+            function future_value(present_value, i, n) {
                 // i : presentase
                 // n : waktu
-            //     return present_value * Math.pow(1 + i, n);
-            // }
-
-            // function pmt(present, i, n){
-            //     return (i*present)/(1 - Math.pow(1+i,-n));
-            // }
-            function future_value(rate, nper, pmt, pv, type) {
-                var pow = Math.pow(1 + rate, nper),
-                    fv;
-
-                pv = pv || 0;
-                type = type || 0;
-
-                if (rate) {
-                    fv = (pmt*(1+rate*type)*(1-pow)/rate)-pv*pow;
-                } else {
-                    fv = -1 * (pv + pmt * nper);
-                }
-                return fv;
+                return present_value * Math.pow(1 + i, n);
             }
 
-            function pmt(rate_per_period, number_of_payments, present_value, future_value, type){
-                // default type = 0
-                if(rate_per_period != 0.0){
-                    // Interest rate exists
-                    var q = Math.pow(1 + rate_per_period, number_of_payments);
-                    return -(rate_per_period * (future_value + (q * present_value))) / ((-1 + q) * (1 + rate_per_period * (type)));
-
-                } else if(number_of_payments != 0.0){
-                    // No interest rate, but number of payments exists
-                    return -(future_value + present_value) / number_of_payments;
-                }
-
-                return 0;
-            }
-
-            function yourDream(){
-                var biaya_saat_ini = document.getElementById("biaya_saat_ini");
-                biaya_saat_ini.addEventListener('keyup', function(e){
-                    biaya_saat_ini.value = formatRupiah(this.value, 'Rp. ');
-                });
-                var tahun_dicapai = document.getElementById("tahun_dicapai").value;
-                var asumsi_inflasi = document.getElementById("asumsi_inflasi").value;
-
-                // var harga_setelah_kenaikan = Math.round(future_value(convertToNormal(biaya_saat_ini.value), Number(asumsi_inflasi)/100, Number(tahun_dicapai)));
-                var harga_setelah_kenaikan = Math.round(future_value(Number(asumsi_inflasi)/100, Number(tahun_dicapai), 1, -convertToNormal(biaya_saat_ini.value)));
-                
-                document.getElementById("harga_setelah_kenaikan").value = formatRupiah(String(harga_setelah_kenaikan), "Rp. ");
-
-                var target_investasi = document.getElementById("target_investasi").value;
-
-                var tabungan = Math.round(harga_setelah_kenaikan/(Number(tahun_dicapai)*12));
-                document.getElementById('tabungan').value = formatRupiah(String(tabungan), "Rp. ");
-                
-                // var jumlah_investasi = Math.round(pmt(harga_setelah_kenaikan, Number(target_investasi)/1200, Number(tahun_dicapai)*12));
-                var jumlah_investasi = Math.round(pmt(Number(target_investasi)/1200, Number(tahun_dicapai)*12, 0, -harga_setelah_kenaikan, 0));
-                document.getElementById('jumlah_investasi').value = formatRupiah(String(jumlah_investasi), "Rp. ");
+            function pmt(present, i, n){
+                return (i*present)/(1 - Math.pow(1+i,-n));
             }
             
+            
+            var biaya_saat_ini = document.getElementById("biaya_saat_ini");
+            biaya_saat_ini.addEventListener('keyup', function(e){
+                biaya_saat_ini.value = formatRupiah(this.value, 'Rp. ');
+            });
+            var tahun_dicapai = document.getElementById("tahun_dicapai").value;
+            var asumsi_inflasi = document.getElementById("asumsi_inflasi").value;
 
+            var harga_setelah_kenaikan = Math.round(future_value(convertToNormal(biaya_saat_ini.value), Number(asumsi_inflasi)/100, Number(tahun_dicapai)));
+            
+            document.getElementById("harga_setelah_kenaikan").onkeyup = function() {
+                document.getElementById("harga_setelah_kenaikan").value = formatRupiah(String(harga_setelah_kenaikan), "Rp. ");
+            }
+                                                                                                                            
+            var target_investasi = document.getElementById("target_investasi").value;
+
+            var tabungan = Math.round(harga_setelah_kenaikan/(Number(tahun_dicapai)*12));
+            document.getElementById('tabungan').onkeyup = function() {
+                document.getElementById('tabungan').value = formatRupiah(String(tabungan), "Rp. ")
+            }
+            
+            var jumlah_investasi = Math.round(pmt(harga_setelah_kenaikan, Number(target_investasi)/1200, Number(tahun_dicapai)*12));
+            document.getElementById('jumlah_investasi').onkeyup = function() {
+                document.getElementById('jumlah_investasi').value = formatRupiah(String(jumlah_investasi), "Rp. ");
+            }
+                    
+            
             function filterFunction() {
                 var input, filter, ul, li, a, i;
                 input = document.getElementById("myInput");
