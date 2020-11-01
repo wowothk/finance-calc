@@ -482,7 +482,7 @@
                 var bunga_kpr = document.getElementById("bunga_kpr").value;
                 var jangka_pinjaman = document.getElementById("jangka_pinjaman").value;
 
-                var cicilan_perbulan = pmt(Number(bunga_kpr)/1200, Number(jangka_pinjaman)*12, 0, -nominal_kpr, 0);
+                var cicilan_perbulan = pmt(Number(bunga_kpr)/1200, Number(jangka_pinjaman)*12, 1, -nominal_kpr, 0);
                 document.getElementById("angsuran_perbulan").value = formatRupiah(String(Math.round(cicilan_perbulan)), "Rp. ");
                 var pembayaran_bunga = cicilan_perbulan*(Number(jangka_pinjaman)*12);
                 document.getElementById("pembayaran_bunga").value = formatRupiah(String(Math.round(pembayaran_bunga)), "Rp. ");

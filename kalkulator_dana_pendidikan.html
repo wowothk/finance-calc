@@ -108,7 +108,7 @@
                 </div>                
               </div>
               <div class="row">
-                <div class="col-lg-4 pt-4 pt-lg-0">
+                <div class="col-lg-8 pt-4 pt-lg-0">
                     <form action="forms/contact.php" method="post" role="form" class="php-email-form calc">
                         <!-- <div class="row"> -->
                         <div class="form-row">
@@ -126,13 +126,13 @@
                         <div class="form-row">
                             <label for="tingkat_inflasi" class="col-sm-4 col-form-label"><b>Asumsi tingkat inflasi</b></label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="tingkat_inflasi" placeholder="Dalam persen" name="tingkat_inflasi">
+                            <input type="text" class="form-control" id="tingkat_inflasi" placeholder="Dalam persen" name="tingkat_inflasi" onkeyup="result()">
                             </div>
                         </div>
                         <div class="form-row">
                             <label for="estimasi_hasil" class="col-sm-4 col-form-label"><b>Tingkat estimasi hasil investasi</b></label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="estimasi_hasil" placeholder="Dalam persen" name="estimasi_hasil">
+                            <input type="text" class="form-control" id="estimasi_hasil" placeholder="Dalam persen" name="estimasi_hasil" onkeyup="result()">
                             </div>
                         </div>
                     </form>
@@ -395,72 +395,93 @@
                     biaya_tk.value = formatRupiah(this.value, 'Rp. ');
                 });
                 var waktu_persiapan_tk = document.getElementById("waktu_persiapan_tk").value;
-                var biaya_mendatang_tk = future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_tk), 0, -convertToNormal(biaya_tk.value));
+                var biaya_mendatang_tk = Number(future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_tk), 0, -convertToNormal(biaya_tk.value)));
                 document.getElementById("biaya_mendatang_tk").value = formatRupiah(String(Math.round(biaya_mendatang_tk)), "Rp. ");
-                var investasi_bulanan_tk = pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_tk)*12, 0, -biaya_mendatang_tk, 0);
+                var investasi_bulanan_tk = Number(pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_tk)*12, 0, -biaya_mendatang_tk, 0));
                 document.getElementById("investasi_bulanan_tk").value = formatRupiah(String(Math.round(investasi_bulanan_tk)), "Rp. ");
 
+                if (String(investasi_bulanan_tk) == "NaN") {
+                    investasi_bulanan_tk = 0;
+                }
 
                 var biaya_sd = document.getElementById("biaya_sd");
                 biaya_sd.addEventListener('keyup', function(e){
                     biaya_sd.value = formatRupiah(this.value, 'Rp. ');
                 });
                 var waktu_persiapan_sd = document.getElementById("waktu_persiapan_sd").value;
-                var biaya_mendatang_sd = future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_sd), 0, -convertToNormal(biaya_sd.value));
+                var biaya_mendatang_sd = Number(future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_sd), 0, -convertToNormal(biaya_sd.value)));
                 document.getElementById("biaya_mendatang_sd").value = formatRupiah(String(Math.round(biaya_mendatang_sd)), "Rp. ");
-                var investasi_bulanan_sd = pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_sd)*12, 0, -biaya_mendatang_sd,0);
+                var investasi_bulanan_sd = Number(pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_sd)*12, 0, -biaya_mendatang_sd,0));
                 document.getElementById("investasi_bulanan_sd").value = formatRupiah(String(Math.round(investasi_bulanan_sd)), "Rp. ");
+
+                if (String(investasi_bulanan_sd) == "NaN") {
+                    investasi_bulanan_sd = 0;
+                }
 
                 var biaya_smp = document.getElementById("biaya_smp");
                 biaya_smp.addEventListener('keyup', function(e){
                     biaya_smp.value = formatRupiah(this.value, 'Rp. ');
                 });
                 var waktu_persiapan_smp = document.getElementById("waktu_persiapan_smp").value;
-                var biaya_mendatang_smp = future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_smp), 0, -convertToNormal(biaya_smp.value));
+                var biaya_mendatang_smp = Number(future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_smp), 0, -convertToNormal(biaya_smp.value)));
                 document.getElementById("biaya_mendatang_smp").value = formatRupiah(String(Math.round(biaya_mendatang_smp)), "Rp. ");
-                var investasi_bulanan_smp = pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_smp)*12, 0, -biaya_mendatang_smp, 0);
+                var investasi_bulanan_smp = Number(pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_smp)*12, 0, -biaya_mendatang_smp, 0));
                 document.getElementById("investasi_bulanan_smp").value = formatRupiah(String(Math.round(investasi_bulanan_smp)), "Rp. ");
+                if (String(investasi_bulanan_smp) == "NaN") {
+                    investasi_bulanan_smp = 0;
+                }
 
                 var biaya_sma = document.getElementById("biaya_sma");
                 biaya_sma.addEventListener('keyup', function(e){
                     biaya_sma.value = formatRupiah(this.value, 'Rp. ');
                 });
                 var waktu_persiapan_sma = document.getElementById("waktu_persiapan_sma").value;
-                var biaya_mendatang_sma = future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_sma), 0, -convertToNormal(biaya_sma.value));
+                var biaya_mendatang_sma = Number(future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_sma), 0, -convertToNormal(biaya_sma.value)));
                 document.getElementById("biaya_mendatang_sma").value = formatRupiah(String(Math.round(biaya_mendatang_sma)), "Rp. ");
-                var investasi_bulanan_sma = pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_sma)*12, 0, -biaya_mendatang_sma, 0);
+                var investasi_bulanan_sma = Number(pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_sma)*12, 0, -biaya_mendatang_sma, 0));
                 document.getElementById("investasi_bulanan_sma").value = formatRupiah(String(Math.round(investasi_bulanan_sma)), "Rp. ");
+                if (String(investasi_bulanan_sma) == "NaN") {
+                    investasi_bulanan_sma = 0;
+                }
 
                 var biaya_s1 = document.getElementById("biaya_s1");
                 biaya_s1.addEventListener('keyup', function(e){
                     biaya_s1.value = formatRupiah(this.value, 'Rp. ');
                 });
                 var waktu_persiapan_s1 = document.getElementById("waktu_persiapan_s1").value;
-                var biaya_mendatang_s1 = future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_s1), 0, -convertToNormal(biaya_s1.value));
+                var biaya_mendatang_s1 = Number(future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_s1), 0, -convertToNormal(biaya_s1.value)));
                 document.getElementById("biaya_mendatang_s1").value = formatRupiah(String(Math.round(biaya_mendatang_s1)), "Rp. ");
-                var investasi_bulanan_s1 = pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_s1)*12, 0, -biaya_mendatang_s1, 0);
+                var investasi_bulanan_s1 = Number(pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_s1)*12, 0, -biaya_mendatang_s1, 0));
                 document.getElementById("investasi_bulanan_s1").value = formatRupiah(String(Math.round(investasi_bulanan_s1)), "Rp. ");
+                if (String(investasi_bulanan_s1) == "NaN") {
+                    investasi_bulanan_s1 = 0;
+                }
 
                 var biaya_s2 = document.getElementById("biaya_s2");
                 biaya_s2.addEventListener('keyup', function(e){
                     biaya_s2.value = formatRupiah(this.value, 'Rp. ');
                 });
                 var waktu_persiapan_s2 = document.getElementById("waktu_persiapan_s2").value;
-                var biaya_mendatang_s2 = future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_s2), 0, -convertToNormal(biaya_s2.value));
+                var biaya_mendatang_s2 = Number(future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_s2), 0, -convertToNormal(biaya_s2.value)));
                 document.getElementById("biaya_mendatang_s2").value = formatRupiah(String(Math.round(biaya_mendatang_s2)), "Rp. ");
-                var investasi_bulanan_s2 = pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_s2)*12, 0, -biaya_mendatang_s2, 0);
+                var investasi_bulanan_s2 = Number(pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_s2)*12, 0, -biaya_mendatang_s2, 0));
                 document.getElementById("investasi_bulanan_s2").value = formatRupiah(String(Math.round(investasi_bulanan_s2)), "Rp. ");
+                if (String(investasi_bulanan_s2) == "NaN") {
+                    investasi_bulanan_s2 = 0;
+                }
 
                 var biaya_s3 = document.getElementById("biaya_s3");
                 biaya_s3.addEventListener('keyup', function(e){
                     biaya_s3.value = formatRupiah(this.value, 'Rp. ');
                 });
                 var waktu_persiapan_s3 = document.getElementById("waktu_persiapan_s3").value;
-                var biaya_mendatang_s3 = future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_s3), 0, -convertToNormal(biaya_s3.value));
+                var biaya_mendatang_s3 = Number(future_value(Number(tingkat_inflasi)/100, Number(waktu_persiapan_s3), 0, -convertToNormal(biaya_s3.value)));
                 document.getElementById("biaya_mendatang_s3").value = formatRupiah(String(Math.round(biaya_mendatang_s3)), "Rp. ");
-                var investasi_bulanan_s3 = pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_s3)*12, 0, -biaya_mendatang_s3, 0);
+                var investasi_bulanan_s3 = Number(pmt(Number(estimasi_investasi)/1200,Number(waktu_persiapan_s3)*12, 0, -biaya_mendatang_s3, 0));
                 document.getElementById("investasi_bulanan_s3").value = formatRupiah(String(Math.round(investasi_bulanan_s3)), "Rp. ");
-
+                if (String(investasi_bulanan_s3) == "NaN") {
+                    investasi_bulanan_s3 = 0;
+                }
                 // ###############
                 // total value
                 // ###############
@@ -469,7 +490,7 @@
                 document.getElementById("total_dana_sekarang").value = formatRupiah(String(total_dana_sekarang), "Rp. ");
                 var total_dana_masadepan = Math.round(biaya_mendatang_tk + biaya_mendatang_sd + biaya_mendatang_smp + biaya_mendatang_sma + biaya_mendatang_s1 + biaya_mendatang_s2 + biaya_mendatang_s3);
                 document.getElementById("total_dana_masadepan").value = formatRupiah(String(total_dana_masadepan), "Rp. ");
-                var total_investasi_perbulan = Math.round(investasi_bulanan_tk + investasi_bulanan_sd + investasi_bulanan_s1 + investasi_bulanan_s2 + investasi_bulanan_s3 + investasi_bulanan_smp + investasi_bulanan_sma);
+                var total_investasi_perbulan = Math.round(Number(investasi_bulanan_tk) + Number(investasi_bulanan_sd) + Number(investasi_bulanan_s1) + Number(investasi_bulanan_s2) + Number(investasi_bulanan_s3) + Number(investasi_bulanan_smp) + Number(investasi_bulanan_sma));
                 document.getElementById("total_investasi_perbulan").value = formatRupiah(String(total_investasi_perbulan), "Rp. ");
             }   
 

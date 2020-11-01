@@ -464,7 +464,7 @@
                 var periode_pinjaman = document.getElementById("periode_pinjaman").value;
 
                 // var besar_angsuran = Math.round(pmt(nominal_pinjaman, Number(bunga_tahunan)/1200, Number(periode_pinjaman)*12));
-                var besar_angsuran = pmt(Number(bunga_tahunan)/1200, Number(periode_pinjaman)*12, 0, -nominal_pinjaman, 0);
+                var besar_angsuran = pmt(Number(bunga_tahunan)/1200, Number(periode_pinjaman)*12, 1, -nominal_pinjaman, 0);
                 document.getElementById('besar_angsuran').value = formatRupiah(String(Math.round(besar_angsuran)), "Rp. ");
 
                 var pembayaran_pokok_bunga = Math.round(besar_angsuran*(Number(periode_pinjaman)*12));

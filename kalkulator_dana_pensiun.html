@@ -122,14 +122,14 @@
                         <div class="form-row">
                             <label for="usia" class="col-sm-4 col-form-label">Usia saat ini</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="usia" placeholder="Berapa Usia Anda" name="usia" onkeyup="waktu_tunggu_pertahun()">
+                            <input type="text" class="form-control" id="usia" placeholder="Berapa Usia Anda" name="usia" onkeyup="final_result()">
                             </div>
                         </div>
                         
                         <div class="form-row">
                             <label for="rencana_pensiun" class="col-sm-4 col-form-label">Usia Pensiun yang diinginkan</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="rencana_pensiun" placeholder="" name="rencana_pensiun" onkeyup="waktu_tunggu_pertahun()">
+                            <input type="text" class="form-control" id="rencana_pensiun" placeholder="" name="rencana_pensiun" onkeyup="final_result()">
                             </div>
                         </div>                        
 
@@ -361,18 +361,6 @@
                 return Number(angka.replace(" ", "").replaceAll(".", "").replace("Rp", ""))
             }
 
-            function waktu_tunggu_pertahun() {
-                var usia = document.getElementById("usia").value;
-                var rencana_penisun = document.getElementById("rencana_pensiun").value;
-                document.getElementById("kapan_pensiun").value =  Number(rencana_penisun)-Number(usia);
-            }
-
-            function estimasi_hidup() {
-                var rencana_pensiun = document.getElementById("rencana_pensiun").value;
-                var perkiraan_lama_pensiun = document.getElementById("perkiraan_lama_pensiun").value;
-                document.getElementById("estimasi_harapan_hidup").value = Number(perkiraan_lama_pensiun) - Number(rencana_pensiun);
-            } 
-
             function biaya_hidup() {
                 var biaya_hidup_saat_ini = document.getElementById("biaya_hidup_saat_ini");
                 biaya_hidup_saat_ini.addEventListener('keyup', function(e){
@@ -441,6 +429,14 @@
             }
 
             function final_result(){
+                var usia = document.getElementById("usia").value;
+                var rencana_pensiun = document.getElementById("rencana_pensiun").value;
+                document.getElementById("kapan_pensiun").value =  Number(rencana_pensiun)-Number(usia);
+            
+                var rencana_pensiun = document.getElementById("rencana_pensiun").value;
+                var perkiraan_lama_pensiun = document.getElementById("perkiraan_lama_pensiun").value;
+                document.getElementById("estimasi_harapan_hidup").value = Number(perkiraan_lama_pensiun) - Number(rencana_pensiun);
+
                 var inflasi = document.getElementById("inflasi").value;
                 var investasi = document.getElementById("investasi").value;
                 var kapan_pensiun = document.getElementById('kapan_pensiun').value;
@@ -459,7 +455,7 @@
                 // var investasi = document.getElementById("investasi").value;
 
                 var dana_pensiun = fv_pengeluaran_tahunan * Number(estimasi_harapan_hidup);
-                alert(Number(estimasi_harapan_hidup))
+                // alert(Number(estimasi_harapan_hidup))
                 var tabungan = dana_pensiun/(Number(kapan_pensiun)*12);
                 var investasi_perbulan = pmt(Number(investasi)/1200, Number(kapan_pensiun)*12, 0, -dana_pensiun, 0);
                 
