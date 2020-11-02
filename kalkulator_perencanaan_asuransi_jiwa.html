@@ -192,7 +192,7 @@
                         </div>
                         
                         <div class="form-row">
-                            <label for="uang_pertanggungan" class="col-sm-4 col-form-label">Kebutuhan uang pertanggungan</label>
+                            <label for="uang_pertanggungan" class="col-sm-4 col-form-label">Kebutuhan uang pertanggungan dasar</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" id="uang_pertanggungan" placeholder="Rp." name="uang_pertanggungan" onkeyup="sum_pendekatan_pemasukan()" disabled>
                             </div>
@@ -420,7 +420,7 @@
 
 
                 var result = totalhutang + totalbiaya + (convertToNormal(pemasukanpertahun.value)*Number(perlindungan_keluarga));
-                var result1 = convertToNormal(pemasukanpertahun.value)/(Number(asumsi_investasi)/100);
+                var result1 = (convertToNormal(pemasukanpertahun.value)/(Number(asumsi_investasi)/100)) + convertToNormal(pemasukanpertahun.value) + totalbiaya + totalhutang;
                 document.getElementById("uang_pertanggungan").value = formatRupiah(String(convertToNormal(pemasukanpertahun.value)*Number(perlindungan_keluarga)), "Rp. ")
                 document.getElementById("asuransi_jiwa_pemasukan").value = formatRupiah(String(result), 'Rp. ');
                 document.getElementById("asuransi_jiwa_retensi").value = formatRupiah(String(result1), 'Rp. ');;
@@ -433,7 +433,7 @@
                 var asumsi_investasi = document.getElementById("asumsi_investasi").value;
                 var uang_pertanggungan = document.getElementById("uang_pertanggungan").value;
                 var result = convertToNormal(totalhutang) + convertToNormal(totalbiaya) + convertToNormal(uang_pertanggungan);
-                var result1 = convertToNormal(pemasukanpertahun)/(Number(asumsi_investasi)/100);
+                var result1 = convertToNormal(pemasukanpertahun)/(Number(asumsi_investasi)/100) + convertToNormal(pemasukanpertahun) + convertToNormal(totalbiaya) + convertToNormal(totalhutang);
 
                 document.getElementById("asuransi_jiwa_pemasukan").value = formatRupiah(String(result), 'Rp. ');;
                 document.getElementById("asuransi_jiwa_retensi").value = formatRupiah(String(result1), 'Rp. ');;
